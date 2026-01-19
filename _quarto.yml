@@ -32,45 +32,9 @@ website:
             href: ./practicals/ggplot2_lab_part1.html          
     right:
       - icon: softwerecarpentry
-        href: 
+        href: https://swcarpentry.github.io/shell-novice/
       - icon: envelope
-        href: mailto:your.email@example.com
-
-  sidebar:
-    - title: "Tutorials"
-      style: "docked"
-      background: light
-      contents:
-        - tutorials.qmd
-        - tutorial-1.qmd
-        - tutorial-2.qmd
-        - r_tutorial_v14.Rmd
-
-    - title: "How-To Guides"
-      contents:
-        - howto.qmd
-        - howto-rmarkdown.qmd
-        - howto-quarto.qmd
-
-    - title: "Fundamentals"
-      contents:
-        - fundamentals.qmd
-        - bioinformatics_basics.qmd
-        - statistics_for_biology.qmd
-
-    - title: "Registration"
-      contents:
-        - 
-
-    - title: "Blog"
-      contents:
-        - blog.qmd
-        - posts/post-1.qmd
-        - posts/post-2.qmd
-
-    - title: "Publications"
-      contents:
-        - publications.qmd
+        href: mailto:abu.siddique@slu.se
 
 format:
   html:

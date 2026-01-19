@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yourdomain.com/index.html</loc>
-    <lastmod>2026-01-19T21:11:54.968Z</lastmod>
+    <lastmod>2026-01-19T22:26:11.262Z</lastmod>
   </url>
   <url>
     <loc>https://yourdomain.com/slides.html</loc>
@@ -62,10 +62,14 @@
   </url>
   <url>
     <loc>https://yourdomain.com/slides/ggplot_gsvms_2026.html</loc>
-    <lastmod>2026-01-19T21:00:48.425Z</lastmod>
+    <lastmod>2026-01-19T22:50:55.766Z</lastmod>
   </url>
   <url>
     <loc>https://yourdomain.com/practicals/ggplot2_lab_part1.html</loc>
-    <lastmod>2026-01-19T16:59:48.828Z</lastmod>
+    <lastmod>2026-01-19T22:03:14.037Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/slides/ggplot_advanced.html</loc>
+    <lastmod>2026-01-19T20:28:49.755Z</lastmod>
   </url>
 </urlset>

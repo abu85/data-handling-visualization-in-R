@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Data handling with tidyr & dplyr and visualization with ggplot2",
     "section": "",
-    "text": "Tuesday\n\n\n\nTime\nTask or Topic\n\n\n\n\n\n09.15-10.00\nLecture Data handling with tidyR\n\n\n\ncoffee break\n\n\n\n\n10.15-11.00\nExercise/lab/practice Data handling with tidyR\n\n\n\ncoffee break\n\n\n\n\n11.15-12.00\nLecture & exercise Data handling with tidyR\n\n\n\nLUNCH break\n\n\n\n\n13.00-14.00\nLecture & exercise Visualization with ggplot2 P1\n\n\n\ncoffee break\n\n\n\n\n14.20-15.45\nexercise & recap Visualization with ggplot2 P1\n\n\n\n\nWednesday\n\n\n\nTime\nTask or Topic\n\n\n\n\n\n09.15-10.00\nLecture Data handling with dplyR\n\n\n\ncoffee break\n\n\n\n\n10.15-11.00\nExercise/lab/practice Data handling with dplyR\n\n\n\ncoffee break\n\n\n\n\n11.15-12.00\nExercise/Recap Data handling with dplyR\n\n\n\nLUNCH break\n\n\n\n\n13.00-14.00\nexercise ggplot2 P2 (advanced)\n\n\n\ncoffee break\n\n\n\n\n14.20-15.30\nexercise &  recap \n\n\n\n15.30-15.45\nfeedback\n\n\n\n\n\n\n\n\n\n\nLecture:\nLab exercises: finish all the challenges\n\n\n\nLecture:\nLab exercises: finish all the challenges\nBonus practice:Basics) upto chapter: 1.17\n\n\n\nlecture: slides_dplyr.pdf Lab exercises: finish all the challenges\n\n\n\nLecture: same lecture\nLab exercises: remake the following graphs (website):\n\nEconomist Scatterplot and/or\nWSJ Heatmap\n\n\n\n\n\n\n\nstorms, cases, pollution, tb, gapminder_data.csv, gapminder_wide.csv\nHow to load data (e.g., ‘case’ data): \n# install.packages(\"readr\")\n\nlibrary(readr)\n\ncases_raw &lt;- https://github.com/rstudio/EDAWR/blob/master/data-raw/cases.csv?raw=true\n\ncases &lt;- read_csv(cases_raw)\n\n\n\n# install.packages(devtools)\nlibrary(devtools)\nlibrary(extrafont)\nfont_import()\nloadfonts(device = \"win\")\nloadfonts()\nfonts()\nIt has enabled you to register several fonts to my Windows and is now working\n\n\n\ngapminder %&gt;% filter(year == 2007) %&gt;%\n   mutate(gdpPercap = gdpPercap / 1000) %&gt;%\n   ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +\n   geom_point(size = 3) + scale_x_log10() + # Log scale for better visualization\n   labs(title = \"Life Expectancy vs. GDP per Capita (2007)\", x = \"GDP per Capita (in thousands)\", y = \"Life Expectancy\", color = \"Continent\") +\n   theme_minimal()\n\n\n\n\ntidyr: This lab exercise is taken from Software Carpentry: ‘R for Reproducible Scientific Analysis’\ndplyr: This lab exercise is taken from Software Carpentry: ‘R for Reproducible Scientific Analysis’\n\n\n\n\n\n\n\n\n👉Tools needed\n\n\n\n\n\n\nTidyverse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n👉️ Course materieals\n\n\n\n\n\n\n\nwget https://github.com/abu85/intro-to-linux-and-R/archive/refs/heads/main.zip . # download with 'wget' command\n\n\n\n\n# sudo apt install unzip  # incase your computer need that packs\n\nunzip main.zip            # extract everything from the zip file to folder\n\nls                        # see the file folder\n\ncd intro-to-linux-and-R   # change and enter into the folder(directory)\nOr Clone this repository (only if you have git tool in linux):\ngit clone https://github.com/YOUR_USERNAME/intro-to-R-genomic-selection.git\ncd intro-to-linux-and-R\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\n\n\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+    "text": "Tuesday\n\n\n\nTime\nTask or Topic\n\n\n\n\n\n09.15-10.00\nLecture Data handling with tidyR\n\n\n\ncoffee break\n\n\n\n\n10.15-11.00\nExercise/lab/practice Data handling with tidyR\n\n\n\ncoffee break\n\n\n\n\n11.15-12.00\nLecture & exercise Data handling with tidyR\n\n\n\nLUNCH break\n\n\n\n\n13.00-14.00\nLecture & exercise Visualization with ggplot2 P1\n\n\n\ncoffee break\n\n\n\n\n14.20-15.45\nexercise & recap Visualization with ggplot2 P1\n\n\n\n\nWednesday\n\n\n\nTime\nTask or Topic\n\n\n\n\n\n09.15-10.00\nLecture Data handling with dplyR\n\n\n\ncoffee break\n\n\n\n\n10.15-11.00\nExercise/lab/practice Data handling with dplyR\n\n\n\ncoffee break\n\n\n\n\n11.15-12.00\nExercise/Recap Data handling with dplyR\n\n\n\nLUNCH break\n\n\n\n\n13.00-14.00\nexercise ggplot2 P2 (advanced)\n\n\n\ncoffee break\n\n\n\n\n14.20-15.30\nexercise &  recap \n\n\n\n15.30-15.45\nfeedback\n\n\n\n\n\n\n\n\n\n\nLecture:\nLab exercises: finish all the challenges\n\n\n\nLecture:\nLab exercises: finish all the challenges\nBonus practice:Basics) upto chapter: 1.17\n\n\n\nlecture: slides_dplyr.pdf Lab exercises: finish all the challenges\n\n\n\nLecture: same lecture\nLab exercises: remake the following graphs (website):\n\nEconomist Scatterplot and/or\nWSJ Heatmap\n\n\n\n\n\n\n\nstorms, cases, pollution, tb, gapminder_data.csv, gapminder_wide.csv\nHow to load data (e.g., ‘case’ data): \n# install.packages(\"readr\")\n\nlibrary(readr)\n\ncases_raw &lt;- https://github.com/rstudio/EDAWR/blob/master/data-raw/cases.csv?raw=true\n\ncases &lt;- read_csv(cases_raw)\n\n\n\n# install.packages(devtools)\nlibrary(devtools)\nlibrary(extrafont)\nfont_import()\nloadfonts(device = \"win\")\nloadfonts()\nfonts()\nIt has enabled you to register several fonts to my Windows and is now working\n\n\n\ngapminder %&gt;% filter(year == 2007) %&gt;%\n   mutate(gdpPercap = gdpPercap / 1000) %&gt;%\n   ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +\n   geom_point(size = 3) + scale_x_log10() + # Log scale for better visualization\n   labs(title = \"Life Expectancy vs. GDP per Capita (2007)\", x = \"GDP per Capita (in thousands)\", y = \"Life Expectancy\", color = \"Continent\") +\n   theme_minimal()\n\n\n\n\ntidyr: This lab exercise is taken from Software Carpentry: ‘R for Reproducible Scientific Analysis’\ndplyr: This lab exercise is taken from Software Carpentry: ‘R for Reproducible Scientific Analysis’\n\n\n\n\n\n\n\n\n👉Tools needed\n\n\n\n\n\n\nTidyverse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n👉️ Course materieals\n\n\n\n\n\n\nRepository\n\nClick on &lt;&gt;Code\nClick on Dowlload ZIP, will be downloaded\nExtract and enter into the repository folder📁\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\nLicense\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
   },
   {
     "objectID": "index.html#requirements",
@@ -849,14 +849,14 @@
   {
     "objectID": "slides/ggplot_gsvms_2026.html",
     "href": "slides/ggplot_gsvms_2026.html",
-    "title": "ggplot2 in R",
+    "title": "ggplot2 in R Part 1 & 2",
     "section": "",
     "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\n\nAttaching package: 'kableExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n\nWarning: package 'patchwork' was built under R version 4.4.3\n\n\nWarning: package 'plotly' was built under R version 4.4.3\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\nWarning: package 'ggiraph' was built under R version 4.4.3"
   },
   {
     "objectID": "slides/ggplot_gsvms_2026.html#packages",
     "href": "slides/ggplot_gsvms_2026.html#packages",
-    "title": "ggplot2 in R",
+    "title": "ggplot2 in R Part 1 & 2",
     "section": "",
     "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\n\nAttaching package: 'kableExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n\nWarning: package 'patchwork' was built under R version 4.4.3\n\n\nWarning: package 'plotly' was built under R version 4.4.3\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\nWarning: package 'ggiraph' was built under R version 4.4.3"
   },
@@ -1164,7 +1164,7 @@
   {
     "objectID": "slides/ggplot_gsvms_2026.html#packages-1",
     "href": "slides/ggplot_gsvms_2026.html#packages-1",
-    "title": "ggplot2 in R",
+    "title": "ggplot2 in R Part 1 & 2",
     "section": "Packages",
     "text": "Packages"
   },
@@ -1213,21 +1213,21 @@
   {
     "objectID": "practicals/ggplot2_lab_part1.html",
     "href": "practicals/ggplot2_lab_part1.html",
-    "title": "Creating Publication-Quality Graphics with ggplot2",
+    "title": "Lab: Visualization with ggplot2",
     "section": "",
     "text": "Exercise time: 80 minutes"
   },
   {
     "objectID": "practicals/ggplot2_lab_part1.html#challenge-4a",
     "href": "practicals/ggplot2_lab_part1.html#challenge-4a",
-    "title": "Creating Publication-Quality Graphics with ggplot2",
+    "title": "Lab: Visualization with ggplot2",
     "section": "Challenge 4a",
     "text": "Challenge 4a\nModify the color and size of the points on the point layer in the previous example.\nHint: do not use the aes function.\nHint: the equivalent of linewidth for points is size.\n\n\n\n\n\n\nSolution to challenge 4a\n\n\n\n\n\nHere a possible solution: Notice that the color argument is supplied outside of the aes() function. This means that it applies to all data points on the graph and is not related to a specific variable.\n\n\nCode\nggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +\n geom_point(size=3, color=\"orange\") + scale_x_log10() +\n geom_smooth(method=\"lm\", linewidth=1.5)\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "practicals/ggplot2_lab_part1.html#challenge-4b",
     "href": "practicals/ggplot2_lab_part1.html#challenge-4b",
-    "title": "Creating Publication-Quality Graphics with ggplot2",
+    "title": "Lab: Visualization with ggplot2",
     "section": "Challenge 4b",
     "text": "Challenge 4b\nModify your solution to Challenge 4a so that the points are now a different shape and are colored by continent with new trendlines. Hint: The color argument can be used inside the aesthetic.\n\n\n\n\n\n\nSolution to challenge 4b\n\n\n\n\n\nHere is a possible solution: Notice that supplying the color argument inside the aes() functions enables you to connect it to a certain variable. The shape argument, as you can see, modifies all data points the same way (it is outside the aes() call) while the color argument which is placed inside the aes() call modifies a point’s color based on its continent value.\n\n\nCode\nggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +\n geom_point(size=3, shape=17) + scale_x_log10() +\n geom_smooth(method=\"lm\", linewidth=1.5)\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
@@ -1250,6 +1250,104 @@
     "href": "index.html#welcome-to-the-day2-2026-01-20",
     "title": "Data handling with tidyr & dplyr and visualization with ggplot2",
     "section": "",
-    "text": "Tuesday\n\n\n\nTime\nTask or Topic\n\n\n\n\n\n09.15-10.00\nLecture Data handling with tidyR\n\n\n\ncoffee break\n\n\n\n\n10.15-11.00\nExercise/lab/practice Data handling with tidyR\n\n\n\ncoffee break\n\n\n\n\n11.15-12.00\nLecture & exercise Data handling with tidyR\n\n\n\nLUNCH break\n\n\n\n\n13.00-14.00\nLecture & exercise Visualization with ggplot2 P1\n\n\n\ncoffee break\n\n\n\n\n14.20-15.45\nexercise & recap Visualization with ggplot2 P1\n\n\n\n\nWednesday\n\n\n\nTime\nTask or Topic\n\n\n\n\n\n09.15-10.00\nLecture Data handling with dplyR\n\n\n\ncoffee break\n\n\n\n\n10.15-11.00\nExercise/lab/practice Data handling with dplyR\n\n\n\ncoffee break\n\n\n\n\n11.15-12.00\nExercise/Recap Data handling with dplyR\n\n\n\nLUNCH break\n\n\n\n\n13.00-14.00\nexercise ggplot2 P2 (advanced)\n\n\n\ncoffee break\n\n\n\n\n14.20-15.30\nexercise &  recap \n\n\n\n15.30-15.45\nfeedback\n\n\n\n\n\n\n\n\n\n\nLecture:\nLab exercises: finish all the challenges\n\n\n\nLecture:\nLab exercises: finish all the challenges\nBonus practice:Basics) upto chapter: 1.17\n\n\n\nlecture: slides_dplyr.pdf Lab exercises: finish all the challenges\n\n\n\nLecture: same lecture\nLab exercises: remake the following graphs (website):\n\nEconomist Scatterplot and/or\nWSJ Heatmap\n\n\n\n\n\n\n\nstorms, cases, pollution, tb, gapminder_data.csv, gapminder_wide.csv\nHow to load data (e.g., ‘case’ data): \n# install.packages(\"readr\")\n\nlibrary(readr)\n\ncases_raw &lt;- https://github.com/rstudio/EDAWR/blob/master/data-raw/cases.csv?raw=true\n\ncases &lt;- read_csv(cases_raw)\n\n\n\n# install.packages(devtools)\nlibrary(devtools)\nlibrary(extrafont)\nfont_import()\nloadfonts(device = \"win\")\nloadfonts()\nfonts()\nIt has enabled you to register several fonts to my Windows and is now working\n\n\n\ngapminder %&gt;% filter(year == 2007) %&gt;%\n   mutate(gdpPercap = gdpPercap / 1000) %&gt;%\n   ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +\n   geom_point(size = 3) + scale_x_log10() + # Log scale for better visualization\n   labs(title = \"Life Expectancy vs. GDP per Capita (2007)\", x = \"GDP per Capita (in thousands)\", y = \"Life Expectancy\", color = \"Continent\") +\n   theme_minimal()\n\n\n\n\ntidyr: This lab exercise is taken from Software Carpentry: ‘R for Reproducible Scientific Analysis’\ndplyr: This lab exercise is taken from Software Carpentry: ‘R for Reproducible Scientific Analysis’\n\n\n\n\n\n\n\n\n👉Tools needed\n\n\n\n\n\n\nTidyverse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n👉️ Course materieals\n\n\n\n\n\n\n\nwget https://github.com/abu85/intro-to-linux-and-R/archive/refs/heads/main.zip . # download with 'wget' command\n\n\n\n\n# sudo apt install unzip  # incase your computer need that packs\n\nunzip main.zip            # extract everything from the zip file to folder\n\nls                        # see the file folder\n\ncd intro-to-linux-and-R   # change and enter into the folder(directory)\nOr Clone this repository (only if you have git tool in linux):\ngit clone https://github.com/YOUR_USERNAME/intro-to-R-genomic-selection.git\ncd intro-to-linux-and-R\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\n\n\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+    "text": "Tuesday\n\n\n\nTime\nTask or Topic\n\n\n\n\n\n09.15-10.00\nLecture Data handling with tidyR\n\n\n\ncoffee break\n\n\n\n\n10.15-11.00\nExercise/lab/practice Data handling with tidyR\n\n\n\ncoffee break\n\n\n\n\n11.15-12.00\nLecture & exercise Data handling with tidyR\n\n\n\nLUNCH break\n\n\n\n\n13.00-14.00\nLecture & exercise Visualization with ggplot2 P1\n\n\n\ncoffee break\n\n\n\n\n14.20-15.45\nexercise & recap Visualization with ggplot2 P1\n\n\n\n\nWednesday\n\n\n\nTime\nTask or Topic\n\n\n\n\n\n09.15-10.00\nLecture Data handling with dplyR\n\n\n\ncoffee break\n\n\n\n\n10.15-11.00\nExercise/lab/practice Data handling with dplyR\n\n\n\ncoffee break\n\n\n\n\n11.15-12.00\nExercise/Recap Data handling with dplyR\n\n\n\nLUNCH break\n\n\n\n\n13.00-14.00\nexercise ggplot2 P2 (advanced)\n\n\n\ncoffee break\n\n\n\n\n14.20-15.30\nexercise &  recap \n\n\n\n15.30-15.45\nfeedback\n\n\n\n\n\n\n\n\n\n\nLecture:\nLab exercises: finish all the challenges\n\n\n\nLecture:\nLab exercises: finish all the challenges\nBonus practice:Basics) upto chapter: 1.17\n\n\n\nlecture: slides_dplyr.pdf Lab exercises: finish all the challenges\n\n\n\nLecture: same lecture\nLab exercises: remake the following graphs (website):\n\nEconomist Scatterplot and/or\nWSJ Heatmap\n\n\n\n\n\n\n\nstorms, cases, pollution, tb, gapminder_data.csv, gapminder_wide.csv\nHow to load data (e.g., ‘case’ data): \n# install.packages(\"readr\")\n\nlibrary(readr)\n\ncases_raw &lt;- https://github.com/rstudio/EDAWR/blob/master/data-raw/cases.csv?raw=true\n\ncases &lt;- read_csv(cases_raw)\n\n\n\n# install.packages(devtools)\nlibrary(devtools)\nlibrary(extrafont)\nfont_import()\nloadfonts(device = \"win\")\nloadfonts()\nfonts()\nIt has enabled you to register several fonts to my Windows and is now working\n\n\n\ngapminder %&gt;% filter(year == 2007) %&gt;%\n   mutate(gdpPercap = gdpPercap / 1000) %&gt;%\n   ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +\n   geom_point(size = 3) + scale_x_log10() + # Log scale for better visualization\n   labs(title = \"Life Expectancy vs. GDP per Capita (2007)\", x = \"GDP per Capita (in thousands)\", y = \"Life Expectancy\", color = \"Continent\") +\n   theme_minimal()\n\n\n\n\ntidyr: This lab exercise is taken from Software Carpentry: ‘R for Reproducible Scientific Analysis’\ndplyr: This lab exercise is taken from Software Carpentry: ‘R for Reproducible Scientific Analysis’\n\n\n\n\n\n\n\n\n👉Tools needed\n\n\n\n\n\n\nTidyverse\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n👉️ Course materieals\n\n\n\n\n\n\nRepository\n\nClick on &lt;&gt;Code\nClick on Dowlload ZIP, will be downloaded\nExtract and enter into the repository folder📁\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\nLicense\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html",
+    "href": "slides/ggplot_advanced.html",
+    "title": "ggplot2 in R Part 2",
+    "section": "",
+    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\n\nAttaching package: 'kableExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n\nWarning: package 'patchwork' was built under R version 4.4.3\n\n\nWarning: package 'plotly' was built under R version 4.4.3\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\nWarning: package 'ggiraph' was built under R version 4.4.3"
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#packages",
+    "href": "slides/ggplot_advanced.html#packages",
+    "title": "ggplot2 in R Part 2",
+    "section": "",
+    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\n\nAttaching package: 'kableExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n\nWarning: package 'patchwork' was built under R version 4.4.3\n\n\nWarning: package 'plotly' was built under R version 4.4.3\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\nWarning: package 'ggiraph' was built under R version 4.4.3"
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#data-diamonds",
+    "href": "slides/ggplot_advanced.html#data-diamonds",
+    "title": "ggplot2 in R Part 2",
+    "section": "Data • diamonds",
+    "text": "Data • diamonds\n\n\n\n\n\n\ncarat\ncut\ncolor\nclarity\ndepth\ntable\nprice\nx\ny\nz\n\n\n\n\n0.23\nIdeal\nE\nSI2\n61.5\n55\n326\n3.95\n3.98\n2.43\n\n\n0.21\nPremium\nE\nSI1\n59.8\n61\n326\n3.89\n3.84\n2.31\n\n\n0.23\nGood\nE\nVS1\n56.9\n65\n327\n4.05\n4.07\n2.31\n\n\n0.29\nPremium\nI\nVS2\n62.4\n58\n334\n4.20\n4.23\n2.63\n\n\n0.31\nGood\nJ\nSI2\n63.3\n58\n335\n4.34\n4.35\n2.75\n\n\n0.24\nVery Good\nJ\nVVS2\n62.8\n57\n336\n3.94\n3.96\n2.48\n\n\n\n\n\n\n\n\n\nstr(diamonds)\n\ntibble [53,940 × 10] (S3: tbl_df/tbl/data.frame)\n $ carat  : num [1:53940] 0.23 0.21 0.23 0.29 0.31 0.24 0.24 0.26 0.22 0.23 ...\n $ cut    : Ord.factor w/ 5 levels \"Fair\"&lt;\"Good\"&lt;..: 5 4 2 4 2 3 3 3 1 3 ...\n $ color  : Ord.factor w/ 7 levels \"D\"&lt;\"E\"&lt;\"F\"&lt;\"G\"&lt;..: 2 2 2 6 7 7 6 5 2 5 ...\n $ clarity: Ord.factor w/ 8 levels \"I1\"&lt;\"SI2\"&lt;\"SI1\"&lt;..: 2 3 5 4 2 6 7 3 4 5 ...\n $ depth  : num [1:53940] 61.5 59.8 56.9 62.4 63.3 62.8 62.3 61.9 65.1 59.4 ...\n $ table  : num [1:53940] 55 61 65 58 58 57 57 55 61 61 ...\n $ price  : int [1:53940] 326 326 327 334 335 336 336 337 337 338 ...\n $ x      : num [1:53940] 3.95 3.89 4.05 4.2 4.34 3.94 3.95 4.07 3.87 4 ...\n $ y      : num [1:53940] 3.98 3.84 4.07 4.23 4.35 3.96 3.98 4.11 3.78 4.05 ...\n $ z      : num [1:53940] 2.43 2.31 2.31 2.63 2.75 2.48 2.47 2.53 2.49 2.39 ...\n\n\n\nR data.frame is a tabular format with rows and columns just like a spreadsheet."
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#aesthetics",
+    "href": "slides/ggplot_advanced.html#aesthetics",
+    "title": "ggplot2 in R Part 2",
+    "section": "Aesthetics",
+    "text": "Aesthetics\n\nx1 &lt;- ggplot(iris) +\n  geom_point(aes(x=Sepal.Length,y=Sepal.Width))+\n  stat_smooth(aes(x=Sepal.Length,y=Sepal.Width))\n\nx2 &lt;- ggplot(iris,aes(x=Sepal.Length,y=Sepal.Width))+\n                      geom_point() + geom_smooth()\n\nwrap_plots(x1,x2,nrow=1,ncol=2)\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nIf the same aesthetics are used in multiple geoms, they can be moved to ggplot()."
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#scales-discrete-colors",
+    "href": "slides/ggplot_advanced.html#scales-discrete-colors",
+    "title": "ggplot2 in R Part 2",
+    "section": "Scales • Discrete Colors",
+    "text": "Scales • Discrete Colors\n\nscales: position, color, fill, size, shape, alpha, linetype\nsyntax: scale_&lt;aesthetic&gt;_&lt;type&gt;\n\n\n\n\np &lt;- ggplot(iris)+geom_point(aes(x=Sepal.Length,\n                     y=Sepal.Width,color=Species))\np\n\n\n\n\n\n\n\n\n\n\np + scale_color_manual(\n     name=\"Manual\",\n     values=c(\"#5BC0EB\",\"#FDE74C\",\"#9BC53D\"))\n\n\n\n\n\n\n\n\n\n\n\nScales are used to control the aesthetics. For example the aesthetic color is mapped to a variable x. The palette of colors used, the mapping of which color to which value, the upper and lower limit of the data and colors etc is controlled by scales."
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#scales-continuous-colors",
+    "href": "slides/ggplot_advanced.html#scales-continuous-colors",
+    "title": "ggplot2 in R Part 2",
+    "section": "Scales • Continuous Colors",
+    "text": "Scales • Continuous Colors\n\nIn RStudio, type scale_, then press TAB\n\n. . .\n\n\n\np &lt;- ggplot(iris)+\n      geom_point(aes(x=Sepal.Length,\n                     y=Sepal.Width,\n      shape=Species,color=Petal.Length))\np\n\n\n\n\n\n\n\n\n\n\np +\nscale_color_gradient(name=\"Pet Len\",\n  breaks=range(iris$Petal.Length),\n  labels=c(\"Min\",\"Max\"),\n  low=\"black\",high=\"red\")\n\n\n\n\n\n\n\n\n\n\n\nContinuous colours can be changed using scale_color_gradient() for two colour gradient. Any number of breaks and colours can be specified using scale_color_gradientn()."
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#scales-shape",
+    "href": "slides/ggplot_advanced.html#scales-shape",
+    "title": "ggplot2 in R Part 2",
+    "section": "Scales • Shape",
+    "text": "Scales • Shape\n\n\n\np &lt;- ggplot(iris)+\n      geom_point(aes(x=Sepal.Length,\n                     y=Sepal.Width,\n      shape=Species,color=Species))\np\n\n\n\n\n\n\n\n\n\n\np +\nscale_color_manual(name=\"New\",\n   values=c(\"blue\",\"green\",\"red\"))+\nscale_shape_manual(name=\"Bla\",values=c(0,1,2))\n\n\n\n\n\n\n\n\n\n\n\nShape scale can be adjusted using scale_shape_manual(). Multiple mappings for the same variable groups legends."
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#scales-axes",
+    "href": "slides/ggplot_advanced.html#scales-axes",
+    "title": "ggplot2 in R Part 2",
+    "section": "Scales • Axes",
+    "text": "Scales • Axes\n\nscales: x, y\nsyntax: scale_&lt;axis&gt;_&lt;type&gt;\narguments: name, limits, breaks, labels\n\n. . .\n\n\n\np &lt;- ggplot(iris)+geom_point(\n  aes(x=Sepal.Length,y=Sepal.Width))\np\n\n\n\n\n\n\n\n\n\n\np + scale_x_continuous(name=\"Sepal Length\",\n        breaks=seq(1,8),limits=c(3,5))\n\nWarning: Removed 118 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n\nThe x and y axes are also controlled by scales. The axis break points, the break point text and limits are controlled through scales.\nWhen setting limits using scale_, the data outside the limits are dropped. Limits can also be set using lims(x=c(3,5)) or xlim(c(3,5)). When mapping, coord_map() or coord_cartesian() is recommended for setting limits."
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#theme-text",
+    "href": "slides/ggplot_advanced.html#theme-text",
+    "title": "ggplot2 in R Part 2",
+    "section": "Theme • Text",
+    "text": "Theme • Text\n\nelement_text(family=NULL,face=NULL,color=NULL,size=NULL,hjust=NULL,\n             vjust=NULL, angle=NULL,lineheight=NULL,margin = NULL)\n\n\np &lt;- p + theme(\n    axis.title=element_text(color=\"#e41a1c\"),\n    axis.text=element_text(color=\"#377eb8\"),\n    plot.title=element_text(color=\"#4daf4a\"),\n    plot.subtitle=element_text(color=\"#984ea3\"),\n    legend.text=element_text(color=\"#ff7f00\"),\n    legend.title=element_text(color=\"#ffff33\"),\n    strip.text=element_text(color=\"#a65628\")\n)\n\n\n\nWarning: Using shapes for an ordinal variable is not advised"
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#theme-rect",
+    "href": "slides/ggplot_advanced.html#theme-rect",
+    "title": "ggplot2 in R Part 2",
+    "section": "Theme • Rect",
+    "text": "Theme • Rect\n\nelement_rect(fill=NULL,color=NULL,size=NULL,linetype=NULL)\n\n\np &lt;- p + theme(\n    plot.background=element_rect(fill=\"#b3e2cd\"),\n    panel.background=element_rect(fill=\"#fdcdac\"),\n    panel.border=element_rect(fill=NA,color=\"#cbd5e8\",size=3),\n    legend.background=element_rect(fill=\"#f4cae4\"),\n    legend.box.background=element_rect(fill=\"#e6f5c9\"),\n    strip.background=element_rect(fill=\"#fff2ae\")\n)\n\nWarning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.\nℹ Please use the `linewidth` argument instead.\n\n\n\n\nWarning: Using shapes for an ordinal variable is not advised"
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#theme-reuse",
+    "href": "slides/ggplot_advanced.html#theme-reuse",
+    "title": "ggplot2 in R Part 2",
+    "section": "Theme • Reuse",
+    "text": "Theme • Reuse\n\nnewtheme &lt;- theme_bw() + theme(\n  axis.ticks=element_blank(), panel.background=element_rect(fill=\"white\"),\n  panel.grid.minor=element_blank(), panel.grid.major.x=element_blank(),\n  panel.grid.major.y=element_line(size=0.3,color=\"grey90\"), panel.border=element_blank(),\n  legend.position=\"top\", legend.justification=\"right\"\n)\n\nWarning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.\nℹ Please use the `linewidth` argument instead.\n\n\n\n\n\np\n\n\n\n\n\n\n\n\n\n\np + newtheme"
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#professional-themes",
+    "href": "slides/ggplot_advanced.html#professional-themes",
+    "title": "ggplot2 in R Part 2",
+    "section": "Professional themes",
+    "text": "Professional themes\n\n\nHow BBC works with R graphics"
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#help",
+    "href": "slides/ggplot_advanced.html#help",
+    "title": "ggplot2 in R Part 2",
+    "section": "Help",
+    "text": "Help\n\n\n\nggplot2 book\n\n\nThe R cookbook\n\n\n\n\nggplot2 official reference\n\nRStudio cheatsheet\n\nr-statistics ggplot2 cheatsheet\n\nStackOverflow\n\nBlogs, R-Bloggers, Cedric Scherer etc."
+  },
+  {
+    "objectID": "slides/ggplot_advanced.html#section",
+    "href": "slides/ggplot_advanced.html#section",
+    "title": "ggplot2 in R Part 2",
+    "section": "",
+    "text": "Thank you! Questions?\n\n\n\n\n\nAcknowledgements:\n• SLUBI • 3Bs • Slides adapted from RaukR • GPL-3 License"
   }
 ]

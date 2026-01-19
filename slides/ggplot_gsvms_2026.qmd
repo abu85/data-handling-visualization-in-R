@@ -1,6 +1,6 @@
 ---
 title: "`ggplot2` in `R` Part 1 & 2"
-description: "Slides modified from Roy Francis (RaukR)"
+description: "Slides modified from Roy Francis (RaukR 2023)"
 author: "Abu Bakar Siddique, SLUBI"
 date: last-modified
 format: 

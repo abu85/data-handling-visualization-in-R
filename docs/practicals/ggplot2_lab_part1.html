@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-01-19">
 
-<title>Creating Publication-Quality Graphics with ggplot2</title>
+<title>Lab: Visualization with ggplot2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -176,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="mailto:your.email@example.com"> <i class="bi bi-envelope" role="img">
+    <a class="nav-link" href="mailto:abu.siddique@slu.se"> <i class="bi bi-envelope" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -192,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Creating Publication-Quality Graphics with ggplot2</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Lab: Visualization with ggplot2</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
                       </div>
   </div>
     
@@ -200,12 +199,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-meta">
 
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">January 19, 2026</p>
-      </div>
-    </div>
     
       
     </div>
@@ -1510,496 +1503,495 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb30" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Creating Publication-Quality Graphics with ggplot2"</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab: Visualization with ggplot2"</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> source</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">    title-block-banner: true</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">    smooth-scroll: true</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 4</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-types: true</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">    number-depth: 4</span></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="co">    df-print: kable</span></span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="co">    standalone: false</span></span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-align: left</span></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: pulse</span></span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight: kate</span></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>Exercise time: 80 minutes</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">    title-block-banner: true</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">    smooth-scroll: true</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 4</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">    number-types: true</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-depth: 4</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="co">    df-print: kable</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="co">    standalone: false</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-align: left</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: pulse</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight: kate</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>Exercise time: 80 minutes</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"# "</span>,<span class="st">"Overview"</span>)</span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"# "</span>,<span class="st">"Overview"</span>)</span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>**Questions**</span>
-<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How can I create publication-quality graphics in R?</span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>**Questions**</span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How can I create publication-quality graphics in R?</span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a>**Objectives**</span>
-<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To be able to use ggplot2 to generate publication-quality graphics.</span>
-<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To apply geometry, aesthetic, and statistics layers to a ggplot plot.</span>
-<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To manipulate the aesthetics of a plot using different colors, shapes, and lines.</span>
-<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To improve data visualization through transforming scales and paneling by group.</span>
-<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To save a plot created with ggplot to disk.</span>
-<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a>---------------------------------------------------------------</span>
-<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, include=FALSE}</span></span>
-<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a><span class="in">gapminder &lt;- read.csv("../scripts/data/gapminder_data.csv", header = TRUE)</span></span>
-<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a>Plotting our data is one of the best ways to</span>
-<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a>quickly explore it and the various relationships</span>
-<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a>between variables.</span>
-<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>There are three main plotting systems in R,</span>
-<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a>the <span class="co">[</span><span class="ot">base plotting system</span><span class="co">][base]</span>, the <span class="co">[</span><span class="ot">lattice</span><span class="co">]</span></span>
-<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a>package, and the <span class="co">[</span><span class="ot">ggplot2</span><span class="co">]</span> package.</span>
-<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a>Today we'll be learning about the ggplot2 package, because</span>
-<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a>it is the most effective for creating publication-quality</span>
-<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a>graphics.</span>
-<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a>ggplot2 is built on the grammar of graphics, the idea that any plot can be</span>
-<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a>built from the same set of components: a **data set**,</span>
-<span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a>**mapping aesthetics**, and graphical **layers**:</span>
-<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data sets** are the data that you, the user, provide.</span>
-<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Mapping aesthetics** are what connect the data to the graphics.</span>
-<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a>  They tell ggplot2 how to use your data to affect how the graph looks,</span>
-<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a>  such as changing what is plotted on the X or Y axis, or the size or</span>
-<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a>  color of different data points.</span>
-<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Layers** are the actual graphical output from ggplot2. Layers</span>
-<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a>  determine what kinds of plot are shown (scatterplot, histogram, etc.),</span>
-<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a>  the coordinate system used (rectangular, polar, others), and other</span>
-<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a>  important aspects of the plot. The idea of layers of graphics may</span>
-<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a>  be familiar to you if you have used image editing programs</span>
-<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a>  like Photoshop, Illustrator, or Inkscape.</span>
-<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a>Let's start off building an example using the gapminder data from earlier.</span>
-<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a>The most basic function is <span class="in">`ggplot`</span>, which lets R know that we're</span>
-<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a>creating a new plot. Any of the arguments we give the <span class="in">`ggplot`</span></span>
-<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a>function are the *global* options for the plot: they apply to all</span>
-<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a>layers on the plot.</span>
-<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r blank-ggplot, message=FALSE, fig.alt="Blank plot, before adding any mapping aesthetics to ggplot()."}</span></span>
-<span id="cb30-93"><a href="#cb30-93" aria-hidden="true" tabindex="-1"></a><span class="in">library("ggplot2")</span></span>
-<span id="cb30-94"><a href="#cb30-94" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder)</span></span>
-<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-96"><a href="#cb30-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-97"><a href="#cb30-97" aria-hidden="true" tabindex="-1"></a>Here we called <span class="in">`ggplot`</span> and told it what data we want to show on</span>
-<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a>our figure. This is not enough information for <span class="in">`ggplot`</span> to actually</span>
-<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a>draw anything. It only creates a blank slate for other elements</span>
-<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a>to be added to.</span>
-<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a>Now we're going to add in the **mapping aesthetics** using the</span>
-<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a><span class="in">`aes`</span> function. <span class="in">`aes`</span> tells <span class="in">`ggplot`</span> how variables in the **data**</span>
-<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a>map to *aesthetic* properties of the figure, such as which columns</span>
-<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a>of the data should be used for the **x** and **y** locations.</span>
-<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ggplot-with-aes, message=FALSE, fig.alt="Plotting area with axes for a scatter plot of life expectancy vs GDP, with no data points visible."}</span></span>
-<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp))</span></span>
-<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a>Here we told <span class="in">`ggplot`</span> we want to plot the "gdpPercap" column of the</span>
-<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a>gapminder data frame on the x-axis, and the "lifeExp" column on the</span>
-<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a>y-axis. Notice that we didn't need to explicitly pass <span class="in">`aes`</span> these</span>
-<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a>columns (e.g. <span class="in">`x = gapminder[, "gdpPercap"]`</span>), this is because</span>
-<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a><span class="in">`ggplot`</span> is smart enough to know to look in the **data** for that column!</span>
-<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a>The final part of making our plot is to tell <span class="in">`ggplot`</span> how we want to</span>
-<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a>visually represent the data. We do this by adding a new **layer**</span>
-<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a>to the plot using one of the **geom** functions.</span>
-<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-vs-gdpPercap-scatter, message=FALSE, fig.alt="Scatter plot of life expectancy vs GDP per capita, now showing the data points."}</span></span>
-<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
-<span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
-<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a>Here we used <span class="in">`geom_point`</span>, which tells <span class="in">`ggplot`</span> we want to visually</span>
-<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a>represent the relationship between **x** and **y** as a scatterplot of points.</span>
-<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 1</span></span>
-<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-131"><a href="#cb30-131" aria-hidden="true" tabindex="-1"></a>Modify the example so that the figure shows how life expectancy has</span>
-<span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a>changed over time:</span>
-<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) + geom_point()</span></span>
-<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hint</span></span>
-<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a>the gapminder dataset has a column called "year", which should appear</span>
-<span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a>on the x-axis.</span>
-<span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
-<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 1</span></span>
-<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a>Here is one possible solution:</span>
-<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch1-sol, fig.cap="Binned scatterplot of life expectancy versus year showing how life expectancy has increased over time"}</span></span>
-<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = year, y = lifeExp)) + geom_point()</span></span>
-<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-154"><a href="#cb30-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-155"><a href="#cb30-155" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 2</span></span>
-<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a>In the previous examples and challenge we've used the <span class="in">`aes`</span> function to tell</span>
-<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a>the scatterplot **geom** about the **x** and **y** locations of each point.</span>
-<span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a>Another *aesthetic* property we can modify is the point *color*. Modify the</span>
-<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a>code from the previous challenge to **color** the points by the "continent"</span>
-<span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a>column. What trends do you see in the data? Are they what you expected?</span>
-<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
-<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 2</span></span>
-<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a>The solution presented below adds <span class="in">`color=continent`</span> to the call of the <span class="in">`aes`</span></span>
-<span id="cb30-166"><a href="#cb30-166" aria-hidden="true" tabindex="-1"></a>function. The general trend seems to indicate an increased life expectancy</span>
-<span id="cb30-167"><a href="#cb30-167" aria-hidden="true" tabindex="-1"></a>over the years. On continents with stronger economies we find a longer life</span>
-<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a>expectancy.</span>
-<span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-170"><a href="#cb30-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch2-sol, fig.cap="Binned scatterplot of life expectancy vs year with color-coded continents showing value of 'aes' function"}</span></span>
-<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = year, y = lifeExp, color=continent)) +</span></span>
-<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
-<span id="cb30-173"><a href="#cb30-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-174"><a href="#cb30-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>**Objectives**</span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To be able to use ggplot2 to generate publication-quality graphics.</span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To apply geometry, aesthetic, and statistics layers to a ggplot plot.</span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To manipulate the aesthetics of a plot using different colors, shapes, and lines.</span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To improve data visualization through transforming scales and paneling by group.</span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>To save a plot created with ggplot to disk.</span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a>---------------------------------------------------------------</span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, include=FALSE}</span></span>
+<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a><span class="in">gapminder &lt;- read.csv("../scripts/data/gapminder_data.csv", header = TRUE)</span></span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a>Plotting our data is one of the best ways to</span>
+<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a>quickly explore it and the various relationships</span>
+<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a>between variables.</span>
+<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a>There are three main plotting systems in R,</span>
+<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>the <span class="co">[</span><span class="ot">base plotting system</span><span class="co">][base]</span>, the <span class="co">[</span><span class="ot">lattice</span><span class="co">]</span></span>
+<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a>package, and the <span class="co">[</span><span class="ot">ggplot2</span><span class="co">]</span> package.</span>
+<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a>Today we'll be learning about the ggplot2 package, because</span>
+<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a>it is the most effective for creating publication-quality</span>
+<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a>graphics.</span>
+<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a>ggplot2 is built on the grammar of graphics, the idea that any plot can be</span>
+<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a>built from the same set of components: a **data set**,</span>
+<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a>**mapping aesthetics**, and graphical **layers**:</span>
+<span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data sets** are the data that you, the user, provide.</span>
+<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Mapping aesthetics** are what connect the data to the graphics.</span>
+<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a>  They tell ggplot2 how to use your data to affect how the graph looks,</span>
+<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a>  such as changing what is plotted on the X or Y axis, or the size or</span>
+<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a>  color of different data points.</span>
+<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Layers** are the actual graphical output from ggplot2. Layers</span>
+<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a>  determine what kinds of plot are shown (scatterplot, histogram, etc.),</span>
+<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a>  the coordinate system used (rectangular, polar, others), and other</span>
+<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a>  important aspects of the plot. The idea of layers of graphics may</span>
+<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a>  be familiar to you if you have used image editing programs</span>
+<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a>  like Photoshop, Illustrator, or Inkscape.</span>
+<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a>Let's start off building an example using the gapminder data from earlier.</span>
+<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a>The most basic function is <span class="in">`ggplot`</span>, which lets R know that we're</span>
+<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a>creating a new plot. Any of the arguments we give the <span class="in">`ggplot`</span></span>
+<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a>function are the *global* options for the plot: they apply to all</span>
+<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a>layers on the plot.</span>
+<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r blank-ggplot, message=FALSE, fig.alt="Blank plot, before adding any mapping aesthetics to ggplot()."}</span></span>
+<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a><span class="in">library("ggplot2")</span></span>
+<span id="cb30-93"><a href="#cb30-93" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder)</span></span>
+<span id="cb30-94"><a href="#cb30-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-96"><a href="#cb30-96" aria-hidden="true" tabindex="-1"></a>Here we called <span class="in">`ggplot`</span> and told it what data we want to show on</span>
+<span id="cb30-97"><a href="#cb30-97" aria-hidden="true" tabindex="-1"></a>our figure. This is not enough information for <span class="in">`ggplot`</span> to actually</span>
+<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a>draw anything. It only creates a blank slate for other elements</span>
+<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a>to be added to.</span>
+<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a>Now we're going to add in the **mapping aesthetics** using the</span>
+<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a><span class="in">`aes`</span> function. <span class="in">`aes`</span> tells <span class="in">`ggplot`</span> how variables in the **data**</span>
+<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a>map to *aesthetic* properties of the figure, such as which columns</span>
+<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a>of the data should be used for the **x** and **y** locations.</span>
+<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ggplot-with-aes, message=FALSE, fig.alt="Plotting area with axes for a scatter plot of life expectancy vs GDP, with no data points visible."}</span></span>
+<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp))</span></span>
+<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a>Here we told <span class="in">`ggplot`</span> we want to plot the "gdpPercap" column of the</span>
+<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a>gapminder data frame on the x-axis, and the "lifeExp" column on the</span>
+<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a>y-axis. Notice that we didn't need to explicitly pass <span class="in">`aes`</span> these</span>
+<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a>columns (e.g. <span class="in">`x = gapminder[, "gdpPercap"]`</span>), this is because</span>
+<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a><span class="in">`ggplot`</span> is smart enough to know to look in the **data** for that column!</span>
+<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a>The final part of making our plot is to tell <span class="in">`ggplot`</span> how we want to</span>
+<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a>visually represent the data. We do this by adding a new **layer**</span>
+<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a>to the plot using one of the **geom** functions.</span>
+<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-vs-gdpPercap-scatter, message=FALSE, fig.alt="Scatter plot of life expectancy vs GDP per capita, now showing the data points."}</span></span>
+<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
+<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
+<span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a>Here we used <span class="in">`geom_point`</span>, which tells <span class="in">`ggplot`</span> we want to visually</span>
+<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a>represent the relationship between **x** and **y** as a scatterplot of points.</span>
+<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 1</span></span>
+<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a>Modify the example so that the figure shows how life expectancy has</span>
+<span id="cb30-131"><a href="#cb30-131" aria-hidden="true" tabindex="-1"></a>changed over time:</span>
+<span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) + geom_point()</span></span>
+<span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hint</span></span>
+<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a>the gapminder dataset has a column called "year", which should appear</span>
+<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a>on the x-axis.</span>
+<span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
+<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 1</span></span>
+<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a>Here is one possible solution:</span>
+<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch1-sol, fig.cap="Binned scatterplot of life expectancy versus year showing how life expectancy has increased over time"}</span></span>
+<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = year, y = lifeExp)) + geom_point()</span></span>
+<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-154"><a href="#cb30-154" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 2</span></span>
+<span id="cb30-155"><a href="#cb30-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a>In the previous examples and challenge we've used the <span class="in">`aes`</span> function to tell</span>
+<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a>the scatterplot **geom** about the **x** and **y** locations of each point.</span>
+<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a>Another *aesthetic* property we can modify is the point *color*. Modify the</span>
+<span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a>code from the previous challenge to **color** the points by the "continent"</span>
+<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a>column. What trends do you see in the data? Are they what you expected?</span>
+<span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
+<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 2</span></span>
+<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a>The solution presented below adds <span class="in">`color=continent`</span> to the call of the <span class="in">`aes`</span></span>
+<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a>function. The general trend seems to indicate an increased life expectancy</span>
+<span id="cb30-166"><a href="#cb30-166" aria-hidden="true" tabindex="-1"></a>over the years. On continents with stronger economies we find a longer life</span>
+<span id="cb30-167"><a href="#cb30-167" aria-hidden="true" tabindex="-1"></a>expectancy.</span>
+<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch2-sol, fig.cap="Binned scatterplot of life expectancy vs year with color-coded continents showing value of 'aes' function"}</span></span>
+<span id="cb30-170"><a href="#cb30-170" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = year, y = lifeExp, color=continent)) +</span></span>
+<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
+<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-173"><a href="#cb30-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-174"><a href="#cb30-174" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-176"><a href="#cb30-176" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-177"><a href="#cb30-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a><span class="fu"># Layers</span></span>
-<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a>Using a scatterplot probably isn't the best for visualizing change over time.</span>
-<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a>Instead, let's tell <span class="in">`ggplot`</span> to visualize the data as a line plot:</span>
-<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-line}</span></span>
-<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, color=continent)) +</span></span>
-<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line()</span></span>
-<span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-189"><a href="#cb30-189" aria-hidden="true" tabindex="-1"></a>Instead of adding a <span class="in">`geom_point`</span> layer, we've added a <span class="in">`geom_line`</span> layer.</span>
-<span id="cb30-190"><a href="#cb30-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-191"><a href="#cb30-191" aria-hidden="true" tabindex="-1"></a>However, the result doesn't look quite as we might have expected: it seems to be jumping around a lot in each continent. Let's try to separate the data by country, plotting one line for each country:</span>
-<span id="cb30-192"><a href="#cb30-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-193"><a href="#cb30-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-line-by}</span></span>
-<span id="cb30-194"><a href="#cb30-194" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, group=country, color=continent)) +</span></span>
-<span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line()</span></span>
-<span id="cb30-196"><a href="#cb30-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a>We've added the **group** *aesthetic*, which tells <span class="in">`ggplot`</span> to draw a line for each</span>
-<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a>country.</span>
-<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a>But what if we want to visualize both lines and points on the plot? We can</span>
-<span id="cb30-202"><a href="#cb30-202" aria-hidden="true" tabindex="-1"></a>add another layer to the plot:</span>
-<span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-204"><a href="#cb30-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-line-point}</span></span>
-<span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, group=country, color=continent)) +</span></span>
-<span id="cb30-206"><a href="#cb30-206" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line() + geom_point()</span></span>
-<span id="cb30-207"><a href="#cb30-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a>It's important to note that each layer is drawn on top of the previous layer. In</span>
-<span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a>this example, the points have been drawn *on top of* the lines. Here's a</span>
-<span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a>demonstration:</span>
-<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-213"><a href="#cb30-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-layer-example-1}</span></span>
-<span id="cb30-214"><a href="#cb30-214" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, group=country)) +</span></span>
-<span id="cb30-215"><a href="#cb30-215" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line(mapping = aes(color=continent)) + geom_point()</span></span>
-<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-217"><a href="#cb30-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-218"><a href="#cb30-218" aria-hidden="true" tabindex="-1"></a>In this example, the *aesthetic* mapping of **color** has been moved from the</span>
-<span id="cb30-219"><a href="#cb30-219" aria-hidden="true" tabindex="-1"></a>global plot options in <span class="in">`ggplot`</span> to the <span class="in">`geom_line`</span> layer so it no longer applies</span>
-<span id="cb30-220"><a href="#cb30-220" aria-hidden="true" tabindex="-1"></a>to the points. Now we can clearly see that the points are drawn on top of the</span>
-<span id="cb30-221"><a href="#cb30-221" aria-hidden="true" tabindex="-1"></a>lines.</span>
-<span id="cb30-222"><a href="#cb30-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-223"><a href="#cb30-223" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb30-224"><a href="#cb30-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-225"><a href="#cb30-225" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tip: Setting an aesthetic to a value instead of a mapping</span></span>
-<span id="cb30-226"><a href="#cb30-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-227"><a href="#cb30-227" aria-hidden="true" tabindex="-1"></a>So far, we've seen how to use an aesthetic (such as **color**) as a *mapping* to a variable in the data. For example, when we use <span class="in">`geom_line(mapping = aes(color=continent))`</span>, ggplot will give a different color to each continent. But what if we want to change the color of all lines to blue? You may think that <span class="in">`geom_line(mapping = aes(color="blue"))`</span> should work, but it doesn't. Since we don't want to create a mapping to a specific variable, we can move the color specification outside of the <span class="in">`aes()`</span> function, like this: <span class="in">`geom_line(color="blue")`</span>.</span>
-<span id="cb30-228"><a href="#cb30-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-229"><a href="#cb30-229" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-230"><a href="#cb30-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-231"><a href="#cb30-231" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 3</span></span>
-<span id="cb30-232"><a href="#cb30-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-233"><a href="#cb30-233" aria-hidden="true" tabindex="-1"></a>Switch the order of the point and line layers from the previous example. What</span>
-<span id="cb30-234"><a href="#cb30-234" aria-hidden="true" tabindex="-1"></a>happened?</span>
-<span id="cb30-235"><a href="#cb30-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-236"><a href="#cb30-236" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
-<span id="cb30-237"><a href="#cb30-237" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 3</span></span>
-<span id="cb30-238"><a href="#cb30-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-239"><a href="#cb30-239" aria-hidden="true" tabindex="-1"></a>The lines now get drawn over the points!</span>
-<span id="cb30-240"><a href="#cb30-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-241"><a href="#cb30-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch3-sol, fig.alt="Scatter plot of life expectancy vs GDP per capita with a trend line summarising the relationship between variables. The plot illustrates the possibilities for styling visualisations in ggplot2 with data points enlarged, coloured orange, and displayed without transparency."}</span></span>
-<span id="cb30-242"><a href="#cb30-242" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, group=country)) +</span></span>
-<span id="cb30-243"><a href="#cb30-243" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_point() + geom_line(mapping = aes(color=continent))</span></span>
-<span id="cb30-244"><a href="#cb30-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-245"><a href="#cb30-245" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a><span class="fu"># Layers</span></span>
+<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a>Using a scatterplot probably isn't the best for visualizing change over time.</span>
+<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a>Instead, let's tell <span class="in">`ggplot`</span> to visualize the data as a line plot:</span>
+<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-line}</span></span>
+<span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, color=continent)) +</span></span>
+<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line()</span></span>
+<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a>Instead of adding a <span class="in">`geom_point`</span> layer, we've added a <span class="in">`geom_line`</span> layer.</span>
+<span id="cb30-189"><a href="#cb30-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-190"><a href="#cb30-190" aria-hidden="true" tabindex="-1"></a>However, the result doesn't look quite as we might have expected: it seems to be jumping around a lot in each continent. Let's try to separate the data by country, plotting one line for each country:</span>
+<span id="cb30-191"><a href="#cb30-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-192"><a href="#cb30-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-line-by}</span></span>
+<span id="cb30-193"><a href="#cb30-193" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, group=country, color=continent)) +</span></span>
+<span id="cb30-194"><a href="#cb30-194" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line()</span></span>
+<span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-196"><a href="#cb30-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a>We've added the **group** *aesthetic*, which tells <span class="in">`ggplot`</span> to draw a line for each</span>
+<span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a>country.</span>
+<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a>But what if we want to visualize both lines and points on the plot? We can</span>
+<span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a>add another layer to the plot:</span>
+<span id="cb30-202"><a href="#cb30-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-line-point}</span></span>
+<span id="cb30-204"><a href="#cb30-204" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, group=country, color=continent)) +</span></span>
+<span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line() + geom_point()</span></span>
+<span id="cb30-206"><a href="#cb30-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-207"><a href="#cb30-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a>It's important to note that each layer is drawn on top of the previous layer. In</span>
+<span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a>this example, the points have been drawn *on top of* the lines. Here's a</span>
+<span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a>demonstration:</span>
+<span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-layer-example-1}</span></span>
+<span id="cb30-213"><a href="#cb30-213" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, group=country)) +</span></span>
+<span id="cb30-214"><a href="#cb30-214" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line(mapping = aes(color=continent)) + geom_point()</span></span>
+<span id="cb30-215"><a href="#cb30-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-217"><a href="#cb30-217" aria-hidden="true" tabindex="-1"></a>In this example, the *aesthetic* mapping of **color** has been moved from the</span>
+<span id="cb30-218"><a href="#cb30-218" aria-hidden="true" tabindex="-1"></a>global plot options in <span class="in">`ggplot`</span> to the <span class="in">`geom_line`</span> layer so it no longer applies</span>
+<span id="cb30-219"><a href="#cb30-219" aria-hidden="true" tabindex="-1"></a>to the points. Now we can clearly see that the points are drawn on top of the</span>
+<span id="cb30-220"><a href="#cb30-220" aria-hidden="true" tabindex="-1"></a>lines.</span>
+<span id="cb30-221"><a href="#cb30-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-222"><a href="#cb30-222" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb30-223"><a href="#cb30-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-224"><a href="#cb30-224" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tip: Setting an aesthetic to a value instead of a mapping</span></span>
+<span id="cb30-225"><a href="#cb30-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-226"><a href="#cb30-226" aria-hidden="true" tabindex="-1"></a>So far, we've seen how to use an aesthetic (such as **color**) as a *mapping* to a variable in the data. For example, when we use <span class="in">`geom_line(mapping = aes(color=continent))`</span>, ggplot will give a different color to each continent. But what if we want to change the color of all lines to blue? You may think that <span class="in">`geom_line(mapping = aes(color="blue"))`</span> should work, but it doesn't. Since we don't want to create a mapping to a specific variable, we can move the color specification outside of the <span class="in">`aes()`</span> function, like this: <span class="in">`geom_line(color="blue")`</span>.</span>
+<span id="cb30-227"><a href="#cb30-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-228"><a href="#cb30-228" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-229"><a href="#cb30-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-230"><a href="#cb30-230" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 3</span></span>
+<span id="cb30-231"><a href="#cb30-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-232"><a href="#cb30-232" aria-hidden="true" tabindex="-1"></a>Switch the order of the point and line layers from the previous example. What</span>
+<span id="cb30-233"><a href="#cb30-233" aria-hidden="true" tabindex="-1"></a>happened?</span>
+<span id="cb30-234"><a href="#cb30-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-235"><a href="#cb30-235" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
+<span id="cb30-236"><a href="#cb30-236" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 3</span></span>
+<span id="cb30-237"><a href="#cb30-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-238"><a href="#cb30-238" aria-hidden="true" tabindex="-1"></a>The lines now get drawn over the points!</span>
+<span id="cb30-239"><a href="#cb30-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-240"><a href="#cb30-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch3-sol, fig.alt="Scatter plot of life expectancy vs GDP per capita with a trend line summarising the relationship between variables. The plot illustrates the possibilities for styling visualisations in ggplot2 with data points enlarged, coloured orange, and displayed without transparency."}</span></span>
+<span id="cb30-241"><a href="#cb30-241" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, group=country)) +</span></span>
+<span id="cb30-242"><a href="#cb30-242" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_point() + geom_line(mapping = aes(color=continent))</span></span>
+<span id="cb30-243"><a href="#cb30-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-244"><a href="#cb30-244" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-245"><a href="#cb30-245" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-246"><a href="#cb30-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-247"><a href="#cb30-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-248"><a href="#cb30-248" aria-hidden="true" tabindex="-1"></a><span class="fu"># Transformations and stats</span></span>
-<span id="cb30-249"><a href="#cb30-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-250"><a href="#cb30-250" aria-hidden="true" tabindex="-1"></a>ggplot2 also makes it easy to overlay statistical models over the data. To</span>
-<span id="cb30-251"><a href="#cb30-251" aria-hidden="true" tabindex="-1"></a>demonstrate we'll go back to our first example:</span>
-<span id="cb30-252"><a href="#cb30-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-253"><a href="#cb30-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-vs-gdpPercap-scatter3, message=FALSE}</span></span>
-<span id="cb30-254"><a href="#cb30-254" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
-<span id="cb30-255"><a href="#cb30-255" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
-<span id="cb30-256"><a href="#cb30-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-257"><a href="#cb30-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-258"><a href="#cb30-258" aria-hidden="true" tabindex="-1"></a>Currently it's hard to see the relationship between the points due to some strong</span>
-<span id="cb30-259"><a href="#cb30-259" aria-hidden="true" tabindex="-1"></a>outliers (see to the right of the plot) in GDP per capita. We can change the scale of units on the x axis using</span>
-<span id="cb30-260"><a href="#cb30-260" aria-hidden="true" tabindex="-1"></a>the *scale* functions. These control the mapping between the data values and</span>
-<span id="cb30-261"><a href="#cb30-261" aria-hidden="true" tabindex="-1"></a>visual values of an aesthetic. We can also modify the transparency of the</span>
-<span id="cb30-262"><a href="#cb30-262" aria-hidden="true" tabindex="-1"></a>points, using the *alpha* function, which is especially helpful when you have</span>
-<span id="cb30-263"><a href="#cb30-263" aria-hidden="true" tabindex="-1"></a>a large amount of data which is very clustered.</span>
-<span id="cb30-264"><a href="#cb30-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-265"><a href="#cb30-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r axis-scale, fig.cap="Scatterplot of GDP vs life expectancy showing logarithmic x-axis data spread"}</span></span>
-<span id="cb30-266"><a href="#cb30-266" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
-<span id="cb30-267"><a href="#cb30-267" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5) + scale_x_log10()</span></span>
-<span id="cb30-268"><a href="#cb30-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-269"><a href="#cb30-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-270"><a href="#cb30-270" aria-hidden="true" tabindex="-1"></a>The <span class="in">`scale_x_log10`</span> function applied a transformation to the coordinate system of the plot, so that each multiple of 10 is evenly spaced from left to right. For example, a GDP per capita of 1,000 is the same horizontal distance away from a value of 10,000 as the 10,000 value is from 100,000. This helps to visualize the spread of the data along the x-axis.</span>
-<span id="cb30-271"><a href="#cb30-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-272"><a href="#cb30-272" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
-<span id="cb30-273"><a href="#cb30-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-274"><a href="#cb30-274" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tip Reminder: Setting an aesthetic to a value instead of a mapping</span></span>
-<span id="cb30-275"><a href="#cb30-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-276"><a href="#cb30-276" aria-hidden="true" tabindex="-1"></a>Notice that we used <span class="in">`geom_point(alpha = 0.5)`</span>. As the previous tip mentioned, using a setting outside of the <span class="in">`aes()`</span> function will cause this value to be used for all points, which is what we want in this case. But just like any other aesthetic setting, *alpha* can also be mapped to a variable in the data. For example, we can give a different transparency to each continent with <span class="in">`geom_point(mapping = aes(alpha = continent))`</span>.</span>
-<span id="cb30-277"><a href="#cb30-277" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-278"><a href="#cb30-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-279"><a href="#cb30-279" aria-hidden="true" tabindex="-1"></a>We can fit a simple relationship to the data by adding another layer,</span>
-<span id="cb30-280"><a href="#cb30-280" aria-hidden="true" tabindex="-1"></a><span class="in">`geom_smooth`</span>:</span>
-<span id="cb30-281"><a href="#cb30-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-282"><a href="#cb30-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lm-fit, fig.alt="Scatter plot of life expectancy vs GDP per capita with a blue trend line summarising the relationship between variables, and gray shaded area indicating 95% confidence intervals for that trend line."}</span></span>
-<span id="cb30-283"><a href="#cb30-283" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
-<span id="cb30-284"><a href="#cb30-284" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5) + scale_x_log10() + geom_smooth(method="lm")</span></span>
-<span id="cb30-285"><a href="#cb30-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-286"><a href="#cb30-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-287"><a href="#cb30-287" aria-hidden="true" tabindex="-1"></a>We can make the line thicker by *setting* the **linewidth** aesthetic in the</span>
-<span id="cb30-288"><a href="#cb30-288" aria-hidden="true" tabindex="-1"></a><span class="in">`geom_smooth`</span> layer:</span>
-<span id="cb30-289"><a href="#cb30-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-290"><a href="#cb30-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lm-fit2, fig.alt="Scatter plot of life expectancy vs GDP per capita with a trend line summarising the relationship between variables. The blue trend line is slightly thicker than in the previous figure."}</span></span>
-<span id="cb30-291"><a href="#cb30-291" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
-<span id="cb30-292"><a href="#cb30-292" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5) + scale_x_log10() + geom_smooth(method="lm", linewidth=1.5)</span></span>
-<span id="cb30-293"><a href="#cb30-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-294"><a href="#cb30-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a>There are two ways an *aesthetic* can be specified. Here we *set* the **linewidth** aesthetic by passing it as an argument to `geom_smooth` and it is applied the same to the whole `geom`. Previously in the lesson we've used the `aes` function to define a *mapping* between data variables and their visual representation.</span>
-<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 4</span></span>
-<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a><span class="fu">## Challenge 4a</span></span>
-<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a>Modify the color and size of the points on the point layer in the previous</span>
-<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a>example.</span>
-<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a>Hint: do not use the <span class="in">`aes`</span> function.</span>
-<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a>Hint: the equivalent of <span class="in">`linewidth`</span> for points is <span class="in">`size`</span>.</span>
-<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
-<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 4a</span></span>
-<span id="cb30-309"><a href="#cb30-309" aria-hidden="true" tabindex="-1"></a>Here a possible solution:</span>
-<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a>Notice that the <span class="in">`color`</span> argument is supplied outside of the <span class="in">`aes()`</span> function.</span>
-<span id="cb30-311"><a href="#cb30-311" aria-hidden="true" tabindex="-1"></a>This means that it applies to all data points on the graph and is not related to</span>
-<span id="cb30-312"><a href="#cb30-312" aria-hidden="true" tabindex="-1"></a>a specific variable.</span>
-<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch4a-sol, fig.alt="Scatter plot of life expectancy vs GDP per capita with a trend line summarising the relationship between variables. The plot illustrates the possibilities for styling visualisations in ggplot2 with data points enlarged, coloured orange, and displayed without transparency."}</span></span>
-<span id="cb30-315"><a href="#cb30-315" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
-<span id="cb30-316"><a href="#cb30-316" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_point(size=3, color="orange") + scale_x_log10() +</span></span>
-<span id="cb30-317"><a href="#cb30-317" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_smooth(method="lm", linewidth=1.5)</span></span>
-<span id="cb30-318"><a href="#cb30-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-319"><a href="#cb30-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-247"><a href="#cb30-247" aria-hidden="true" tabindex="-1"></a><span class="fu"># Transformations and stats</span></span>
+<span id="cb30-248"><a href="#cb30-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-249"><a href="#cb30-249" aria-hidden="true" tabindex="-1"></a>ggplot2 also makes it easy to overlay statistical models over the data. To</span>
+<span id="cb30-250"><a href="#cb30-250" aria-hidden="true" tabindex="-1"></a>demonstrate we'll go back to our first example:</span>
+<span id="cb30-251"><a href="#cb30-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-252"><a href="#cb30-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lifeExp-vs-gdpPercap-scatter3, message=FALSE}</span></span>
+<span id="cb30-253"><a href="#cb30-253" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
+<span id="cb30-254"><a href="#cb30-254" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
+<span id="cb30-255"><a href="#cb30-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-256"><a href="#cb30-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-257"><a href="#cb30-257" aria-hidden="true" tabindex="-1"></a>Currently it's hard to see the relationship between the points due to some strong</span>
+<span id="cb30-258"><a href="#cb30-258" aria-hidden="true" tabindex="-1"></a>outliers (see to the right of the plot) in GDP per capita. We can change the scale of units on the x axis using</span>
+<span id="cb30-259"><a href="#cb30-259" aria-hidden="true" tabindex="-1"></a>the *scale* functions. These control the mapping between the data values and</span>
+<span id="cb30-260"><a href="#cb30-260" aria-hidden="true" tabindex="-1"></a>visual values of an aesthetic. We can also modify the transparency of the</span>
+<span id="cb30-261"><a href="#cb30-261" aria-hidden="true" tabindex="-1"></a>points, using the *alpha* function, which is especially helpful when you have</span>
+<span id="cb30-262"><a href="#cb30-262" aria-hidden="true" tabindex="-1"></a>a large amount of data which is very clustered.</span>
+<span id="cb30-263"><a href="#cb30-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-264"><a href="#cb30-264" aria-hidden="true" tabindex="-1"></a><span class="in">```{r axis-scale, fig.cap="Scatterplot of GDP vs life expectancy showing logarithmic x-axis data spread"}</span></span>
+<span id="cb30-265"><a href="#cb30-265" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
+<span id="cb30-266"><a href="#cb30-266" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5) + scale_x_log10()</span></span>
+<span id="cb30-267"><a href="#cb30-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-268"><a href="#cb30-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-269"><a href="#cb30-269" aria-hidden="true" tabindex="-1"></a>The <span class="in">`scale_x_log10`</span> function applied a transformation to the coordinate system of the plot, so that each multiple of 10 is evenly spaced from left to right. For example, a GDP per capita of 1,000 is the same horizontal distance away from a value of 10,000 as the 10,000 value is from 100,000. This helps to visualize the spread of the data along the x-axis.</span>
+<span id="cb30-270"><a href="#cb30-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-271"><a href="#cb30-271" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb30-272"><a href="#cb30-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-273"><a href="#cb30-273" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tip Reminder: Setting an aesthetic to a value instead of a mapping</span></span>
+<span id="cb30-274"><a href="#cb30-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-275"><a href="#cb30-275" aria-hidden="true" tabindex="-1"></a>Notice that we used <span class="in">`geom_point(alpha = 0.5)`</span>. As the previous tip mentioned, using a setting outside of the <span class="in">`aes()`</span> function will cause this value to be used for all points, which is what we want in this case. But just like any other aesthetic setting, *alpha* can also be mapped to a variable in the data. For example, we can give a different transparency to each continent with <span class="in">`geom_point(mapping = aes(alpha = continent))`</span>.</span>
+<span id="cb30-276"><a href="#cb30-276" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-277"><a href="#cb30-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-278"><a href="#cb30-278" aria-hidden="true" tabindex="-1"></a>We can fit a simple relationship to the data by adding another layer,</span>
+<span id="cb30-279"><a href="#cb30-279" aria-hidden="true" tabindex="-1"></a><span class="in">`geom_smooth`</span>:</span>
+<span id="cb30-280"><a href="#cb30-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-281"><a href="#cb30-281" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lm-fit, fig.alt="Scatter plot of life expectancy vs GDP per capita with a blue trend line summarising the relationship between variables, and gray shaded area indicating 95% confidence intervals for that trend line."}</span></span>
+<span id="cb30-282"><a href="#cb30-282" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
+<span id="cb30-283"><a href="#cb30-283" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5) + scale_x_log10() + geom_smooth(method="lm")</span></span>
+<span id="cb30-284"><a href="#cb30-284" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-285"><a href="#cb30-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-286"><a href="#cb30-286" aria-hidden="true" tabindex="-1"></a>We can make the line thicker by *setting* the **linewidth** aesthetic in the</span>
+<span id="cb30-287"><a href="#cb30-287" aria-hidden="true" tabindex="-1"></a><span class="in">`geom_smooth`</span> layer:</span>
+<span id="cb30-288"><a href="#cb30-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-289"><a href="#cb30-289" aria-hidden="true" tabindex="-1"></a><span class="in">```{r lm-fit2, fig.alt="Scatter plot of life expectancy vs GDP per capita with a trend line summarising the relationship between variables. The blue trend line is slightly thicker than in the previous figure."}</span></span>
+<span id="cb30-290"><a href="#cb30-290" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
+<span id="cb30-291"><a href="#cb30-291" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5) + scale_x_log10() + geom_smooth(method="lm", linewidth=1.5)</span></span>
+<span id="cb30-292"><a href="#cb30-292" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-293"><a href="#cb30-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-294"><a href="#cb30-294" aria-hidden="true" tabindex="-1"></a>There are two ways an *aesthetic* can be specified. Here we *set* the **linewidth** aesthetic by passing it as an argument to `geom_smooth` and it is applied the same to the whole `geom`. Previously in the lesson we've used the `aes` function to define a *mapping* between data variables and their visual representation.</span>
+<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 4</span></span>
+<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a><span class="fu">## Challenge 4a</span></span>
+<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a>Modify the color and size of the points on the point layer in the previous</span>
+<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a>example.</span>
+<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a>Hint: do not use the <span class="in">`aes`</span> function.</span>
+<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a>Hint: the equivalent of <span class="in">`linewidth`</span> for points is <span class="in">`size`</span>.</span>
+<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
+<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 4a</span></span>
+<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a>Here a possible solution:</span>
+<span id="cb30-309"><a href="#cb30-309" aria-hidden="true" tabindex="-1"></a>Notice that the <span class="in">`color`</span> argument is supplied outside of the <span class="in">`aes()`</span> function.</span>
+<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a>This means that it applies to all data points on the graph and is not related to</span>
+<span id="cb30-311"><a href="#cb30-311" aria-hidden="true" tabindex="-1"></a>a specific variable.</span>
+<span id="cb30-312"><a href="#cb30-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch4a-sol, fig.alt="Scatter plot of life expectancy vs GDP per capita with a trend line summarising the relationship between variables. The plot illustrates the possibilities for styling visualisations in ggplot2 with data points enlarged, coloured orange, and displayed without transparency."}</span></span>
+<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +</span></span>
+<span id="cb30-315"><a href="#cb30-315" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_point(size=3, color="orange") + scale_x_log10() +</span></span>
+<span id="cb30-316"><a href="#cb30-316" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_smooth(method="lm", linewidth=1.5)</span></span>
+<span id="cb30-317"><a href="#cb30-317" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-318"><a href="#cb30-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-319"><a href="#cb30-319" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-321"><a href="#cb30-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-323"><a href="#cb30-323" aria-hidden="true" tabindex="-1"></a><span class="fu">## Challenge 4b</span></span>
-<span id="cb30-324"><a href="#cb30-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a>Modify your solution to Challenge 4a so that the</span>
-<span id="cb30-326"><a href="#cb30-326" aria-hidden="true" tabindex="-1"></a>points are now a different shape and are colored by continent with new</span>
-<span id="cb30-327"><a href="#cb30-327" aria-hidden="true" tabindex="-1"></a>trendlines.  Hint: The color argument can be used inside the aesthetic.</span>
-<span id="cb30-328"><a href="#cb30-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-329"><a href="#cb30-329" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
-<span id="cb30-330"><a href="#cb30-330" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 4b</span></span>
-<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a>Here is a possible solution:</span>
-<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a>Notice that supplying the <span class="in">`color`</span> argument inside the <span class="in">`aes()`</span> functions enables you to</span>
-<span id="cb30-333"><a href="#cb30-333" aria-hidden="true" tabindex="-1"></a>connect it to a certain variable. The <span class="in">`shape`</span> argument, as you can see, modifies all</span>
-<span id="cb30-334"><a href="#cb30-334" aria-hidden="true" tabindex="-1"></a>data points the same way (it is outside the <span class="in">`aes()`</span> call) while the <span class="in">`color`</span> argument which</span>
-<span id="cb30-335"><a href="#cb30-335" aria-hidden="true" tabindex="-1"></a>is placed inside the <span class="in">`aes()`</span> call modifies a point's color based on its continent value.</span>
-<span id="cb30-336"><a href="#cb30-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-337"><a href="#cb30-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch4b-sol}</span></span>
-<span id="cb30-338"><a href="#cb30-338" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +</span></span>
-<span id="cb30-339"><a href="#cb30-339" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_point(size=3, shape=17) + scale_x_log10() +</span></span>
-<span id="cb30-340"><a href="#cb30-340" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_smooth(method="lm", linewidth=1.5)</span></span>
-<span id="cb30-341"><a href="#cb30-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-342"><a href="#cb30-342" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-343"><a href="#cb30-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-344"><a href="#cb30-344" aria-hidden="true" tabindex="-1"></a><span class="fu"># Multi-panel figures</span></span>
-<span id="cb30-345"><a href="#cb30-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-346"><a href="#cb30-346" aria-hidden="true" tabindex="-1"></a>Earlier we visualized the change in life expectancy over time across all</span>
-<span id="cb30-347"><a href="#cb30-347" aria-hidden="true" tabindex="-1"></a>countries in one plot. Alternatively, we can split this out over multiple panels</span>
-<span id="cb30-348"><a href="#cb30-348" aria-hidden="true" tabindex="-1"></a>by adding a layer of **facet** panels.</span>
-<span id="cb30-349"><a href="#cb30-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-350"><a href="#cb30-350" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb30-351"><a href="#cb30-351" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tip</span></span>
-<span id="cb30-352"><a href="#cb30-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-353"><a href="#cb30-353" aria-hidden="true" tabindex="-1"></a>We start by making a subset of data including only countries located</span>
-<span id="cb30-354"><a href="#cb30-354" aria-hidden="true" tabindex="-1"></a>in the Americas.  This includes 25 countries, which will begin to</span>
-<span id="cb30-355"><a href="#cb30-355" aria-hidden="true" tabindex="-1"></a>clutter the figure.  Note that we apply a "theme" definition to rotate</span>
-<span id="cb30-356"><a href="#cb30-356" aria-hidden="true" tabindex="-1"></a>the x-axis labels to maintain readability.  Nearly everything in</span>
-<span id="cb30-357"><a href="#cb30-357" aria-hidden="true" tabindex="-1"></a>ggplot2 is customizable.</span>
+<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a><span class="fu">## Challenge 4b</span></span>
+<span id="cb30-323"><a href="#cb30-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-324"><a href="#cb30-324" aria-hidden="true" tabindex="-1"></a>Modify your solution to Challenge 4a so that the</span>
+<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a>points are now a different shape and are colored by continent with new</span>
+<span id="cb30-326"><a href="#cb30-326" aria-hidden="true" tabindex="-1"></a>trendlines.  Hint: The color argument can be used inside the aesthetic.</span>
+<span id="cb30-327"><a href="#cb30-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-328"><a href="#cb30-328" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
+<span id="cb30-329"><a href="#cb30-329" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 4b</span></span>
+<span id="cb30-330"><a href="#cb30-330" aria-hidden="true" tabindex="-1"></a>Here is a possible solution:</span>
+<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a>Notice that supplying the <span class="in">`color`</span> argument inside the <span class="in">`aes()`</span> functions enables you to</span>
+<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a>connect it to a certain variable. The <span class="in">`shape`</span> argument, as you can see, modifies all</span>
+<span id="cb30-333"><a href="#cb30-333" aria-hidden="true" tabindex="-1"></a>data points the same way (it is outside the <span class="in">`aes()`</span> call) while the <span class="in">`color`</span> argument which</span>
+<span id="cb30-334"><a href="#cb30-334" aria-hidden="true" tabindex="-1"></a>is placed inside the <span class="in">`aes()`</span> call modifies a point's color based on its continent value.</span>
+<span id="cb30-335"><a href="#cb30-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-336"><a href="#cb30-336" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch4b-sol}</span></span>
+<span id="cb30-337"><a href="#cb30-337" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +</span></span>
+<span id="cb30-338"><a href="#cb30-338" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_point(size=3, shape=17) + scale_x_log10() +</span></span>
+<span id="cb30-339"><a href="#cb30-339" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_smooth(method="lm", linewidth=1.5)</span></span>
+<span id="cb30-340"><a href="#cb30-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-341"><a href="#cb30-341" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-342"><a href="#cb30-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-343"><a href="#cb30-343" aria-hidden="true" tabindex="-1"></a><span class="fu"># Multi-panel figures</span></span>
+<span id="cb30-344"><a href="#cb30-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-345"><a href="#cb30-345" aria-hidden="true" tabindex="-1"></a>Earlier we visualized the change in life expectancy over time across all</span>
+<span id="cb30-346"><a href="#cb30-346" aria-hidden="true" tabindex="-1"></a>countries in one plot. Alternatively, we can split this out over multiple panels</span>
+<span id="cb30-347"><a href="#cb30-347" aria-hidden="true" tabindex="-1"></a>by adding a layer of **facet** panels.</span>
+<span id="cb30-348"><a href="#cb30-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-349"><a href="#cb30-349" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb30-350"><a href="#cb30-350" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tip</span></span>
+<span id="cb30-351"><a href="#cb30-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-352"><a href="#cb30-352" aria-hidden="true" tabindex="-1"></a>We start by making a subset of data including only countries located</span>
+<span id="cb30-353"><a href="#cb30-353" aria-hidden="true" tabindex="-1"></a>in the Americas.  This includes 25 countries, which will begin to</span>
+<span id="cb30-354"><a href="#cb30-354" aria-hidden="true" tabindex="-1"></a>clutter the figure.  Note that we apply a "theme" definition to rotate</span>
+<span id="cb30-355"><a href="#cb30-355" aria-hidden="true" tabindex="-1"></a>the x-axis labels to maintain readability.  Nearly everything in</span>
+<span id="cb30-356"><a href="#cb30-356" aria-hidden="true" tabindex="-1"></a>ggplot2 is customizable.</span>
+<span id="cb30-357"><a href="#cb30-357" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-358"><a href="#cb30-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-359"><a href="#cb30-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-360"><a href="#cb30-360" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb30-361"><a href="#cb30-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-362"><a href="#cb30-362" aria-hidden="true" tabindex="-1"></a><span class="in">```{r facet}</span></span>
-<span id="cb30-363"><a href="#cb30-363" aria-hidden="true" tabindex="-1"></a><span class="in">americas &lt;- gapminder[gapminder$continent == "Americas",]</span></span>
-<span id="cb30-364"><a href="#cb30-364" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = americas, mapping = aes(x = year, y = lifeExp)) +</span></span>
-<span id="cb30-365"><a href="#cb30-365" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line() +</span></span>
-<span id="cb30-366"><a href="#cb30-366" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap( ~ country) +</span></span>
-<span id="cb30-367"><a href="#cb30-367" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(axis.text.x = element_text(angle = 45))</span></span>
-<span id="cb30-368"><a href="#cb30-368" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-369"><a href="#cb30-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-370"><a href="#cb30-370" aria-hidden="true" tabindex="-1"></a>The <span class="in">`facet_wrap`</span> layer took a "formula" as its argument, denoted by the tilde</span>
-<span id="cb30-371"><a href="#cb30-371" aria-hidden="true" tabindex="-1"></a>(~). This tells R to draw a panel for each unique value in the country column</span>
-<span id="cb30-372"><a href="#cb30-372" aria-hidden="true" tabindex="-1"></a>of the gapminder dataset.</span>
-<span id="cb30-373"><a href="#cb30-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-374"><a href="#cb30-374" aria-hidden="true" tabindex="-1"></a><span class="fu"># Modifying text</span></span>
-<span id="cb30-375"><a href="#cb30-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-376"><a href="#cb30-376" aria-hidden="true" tabindex="-1"></a>To clean this figure up for a publication we need to change some of the text</span>
-<span id="cb30-377"><a href="#cb30-377" aria-hidden="true" tabindex="-1"></a>elements. The x-axis is too cluttered, and the y axis should read</span>
-<span id="cb30-378"><a href="#cb30-378" aria-hidden="true" tabindex="-1"></a>"Life expectancy", rather than the column name in the data frame.</span>
-<span id="cb30-379"><a href="#cb30-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-380"><a href="#cb30-380" aria-hidden="true" tabindex="-1"></a>We can do this by adding a couple of different layers. The **theme** layer</span>
-<span id="cb30-381"><a href="#cb30-381" aria-hidden="true" tabindex="-1"></a>controls the axis text, and overall text size. Labels for the axes, plot</span>
-<span id="cb30-382"><a href="#cb30-382" aria-hidden="true" tabindex="-1"></a>title and any legend can be set using the <span class="in">`labs`</span> function. Legend titles</span>
-<span id="cb30-383"><a href="#cb30-383" aria-hidden="true" tabindex="-1"></a>are set using the same names we used in the <span class="in">`aes`</span> specification. Thus below</span>
-<span id="cb30-384"><a href="#cb30-384" aria-hidden="true" tabindex="-1"></a>the color legend title is set using <span class="in">`color = "Continent"`</span>, while the title</span>
-<span id="cb30-385"><a href="#cb30-385" aria-hidden="true" tabindex="-1"></a>of a fill legend would be set using <span class="in">`fill = "MyTitle"`</span>.</span>
-<span id="cb30-386"><a href="#cb30-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-387"><a href="#cb30-387" aria-hidden="true" tabindex="-1"></a><span class="in">```{r theme}</span></span>
-<span id="cb30-388"><a href="#cb30-388" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +</span></span>
-<span id="cb30-389"><a href="#cb30-389" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line() + </span></span>
-<span id="cb30-390"><a href="#cb30-390" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap( ~ country) +</span></span>
-<span id="cb30-391"><a href="#cb30-391" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
-<span id="cb30-392"><a href="#cb30-392" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Year",              # x axis title</span></span>
-<span id="cb30-393"><a href="#cb30-393" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Life expectancy",   # y axis title</span></span>
-<span id="cb30-394"><a href="#cb30-394" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Figure 1",      # main title of figure</span></span>
-<span id="cb30-395"><a href="#cb30-395" aria-hidden="true" tabindex="-1"></a><span class="in">    color = "Continent"      # title of legend</span></span>
-<span id="cb30-396"><a href="#cb30-396" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
-<span id="cb30-397"><a href="#cb30-397" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(axis.text.x = element_text(angle = 90, hjust = 1))</span></span>
-<span id="cb30-398"><a href="#cb30-398" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-399"><a href="#cb30-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-400"><a href="#cb30-400" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exporting the plot</span></span>
-<span id="cb30-401"><a href="#cb30-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-402"><a href="#cb30-402" aria-hidden="true" tabindex="-1"></a>The <span class="in">`ggsave()`</span> function allows you to export a plot created with ggplot. You can specify the dimension and resolution of your plot by adjusting the appropriate arguments (<span class="in">`width`</span>, <span class="in">`height`</span> and <span class="in">`dpi`</span>) to create high quality graphics for publication. In order to save the plot from above, we first assign it to a variable <span class="in">`lifeExp_plot`</span>, then tell <span class="in">`ggsave`</span> to save that plot in <span class="in">`png`</span> format to a directory called <span class="in">`results`</span>. (Make sure you have a <span class="in">`results/`</span> folder in your working directory.)</span>
-<span id="cb30-403"><a href="#cb30-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-404"><a href="#cb30-404" aria-hidden="true" tabindex="-1"></a><span class="in">```{r directory-check, echo=FALSE}</span></span>
-<span id="cb30-405"><a href="#cb30-405" aria-hidden="true" tabindex="-1"></a><span class="in">if (!dir.exists("results")) {</span></span>
-<span id="cb30-406"><a href="#cb30-406" aria-hidden="true" tabindex="-1"></a><span class="in">  dir.create("results")</span></span>
-<span id="cb30-407"><a href="#cb30-407" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb30-408"><a href="#cb30-408" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-409"><a href="#cb30-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-410"><a href="#cb30-410" aria-hidden="true" tabindex="-1"></a><span class="in">```{r save}</span></span>
-<span id="cb30-411"><a href="#cb30-411" aria-hidden="true" tabindex="-1"></a><span class="in">lifeExp_plot &lt;- ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +</span></span>
-<span id="cb30-412"><a href="#cb30-412" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line() + facet_wrap( ~ country) +</span></span>
-<span id="cb30-413"><a href="#cb30-413" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
-<span id="cb30-414"><a href="#cb30-414" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Year",              # x axis title</span></span>
-<span id="cb30-415"><a href="#cb30-415" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Life expectancy",   # y axis title</span></span>
-<span id="cb30-416"><a href="#cb30-416" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Figure 1",      # main title of figure</span></span>
-<span id="cb30-417"><a href="#cb30-417" aria-hidden="true" tabindex="-1"></a><span class="in">    color = "Continent"      # title of legend</span></span>
-<span id="cb30-418"><a href="#cb30-418" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
-<span id="cb30-419"><a href="#cb30-419" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(axis.text.x = element_text(angle = 90, hjust = 1))</span></span>
-<span id="cb30-420"><a href="#cb30-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-421"><a href="#cb30-421" aria-hidden="true" tabindex="-1"></a><span class="in">ggsave(filename = "results/lifeExp.png", plot = lifeExp_plot, width = 15, height = 15, dpi = 300, units = "cm")</span></span>
-<span id="cb30-422"><a href="#cb30-422" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-423"><a href="#cb30-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-424"><a href="#cb30-424" aria-hidden="true" tabindex="-1"></a>There are two nice things about <span class="in">`ggsave`</span>. First, it defaults to the last plot, so if you omit the <span class="in">`plot`</span> argument it will automatically save the last plot you created with <span class="in">`ggplot`</span>. Secondly, it tries to determine the format you want to save your plot in from the file extension you provide for the filename (for example <span class="in">`.png`</span> or <span class="in">`.pdf`</span>). If you need to, you can specify the format explicitly in the <span class="in">`device`</span> argument.</span>
-<span id="cb30-425"><a href="#cb30-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-426"><a href="#cb30-426" aria-hidden="true" tabindex="-1"></a>This is a taste of what you can do with ggplot2. RStudio provides a</span>
-<span id="cb30-427"><a href="#cb30-427" aria-hidden="true" tabindex="-1"></a>really useful <span class="co">[</span><span class="ot">cheat sheet</span><span class="co">][cheat]</span> of the different layers available, and more</span>
-<span id="cb30-428"><a href="#cb30-428" aria-hidden="true" tabindex="-1"></a>extensive documentation is available on the <span class="co">[</span><span class="ot">ggplot2 website</span><span class="co">][ggplot-doc]</span>. All RStudio cheat sheets are available from the <span class="co">[</span><span class="ot">RStudio website</span><span class="co">][cheat_all]</span>.</span>
-<span id="cb30-429"><a href="#cb30-429" aria-hidden="true" tabindex="-1"></a>Finally, if you have no idea how to change something, a quick Google search will</span>
-<span id="cb30-430"><a href="#cb30-430" aria-hidden="true" tabindex="-1"></a>usually send you to a relevant question and answer on Stack Overflow with reusable</span>
-<span id="cb30-431"><a href="#cb30-431" aria-hidden="true" tabindex="-1"></a>code to modify!</span>
+<span id="cb30-359"><a href="#cb30-359" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-360"><a href="#cb30-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-361"><a href="#cb30-361" aria-hidden="true" tabindex="-1"></a><span class="in">```{r facet}</span></span>
+<span id="cb30-362"><a href="#cb30-362" aria-hidden="true" tabindex="-1"></a><span class="in">americas &lt;- gapminder[gapminder$continent == "Americas",]</span></span>
+<span id="cb30-363"><a href="#cb30-363" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = americas, mapping = aes(x = year, y = lifeExp)) +</span></span>
+<span id="cb30-364"><a href="#cb30-364" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line() +</span></span>
+<span id="cb30-365"><a href="#cb30-365" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap( ~ country) +</span></span>
+<span id="cb30-366"><a href="#cb30-366" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(axis.text.x = element_text(angle = 45))</span></span>
+<span id="cb30-367"><a href="#cb30-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-368"><a href="#cb30-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-369"><a href="#cb30-369" aria-hidden="true" tabindex="-1"></a>The <span class="in">`facet_wrap`</span> layer took a "formula" as its argument, denoted by the tilde</span>
+<span id="cb30-370"><a href="#cb30-370" aria-hidden="true" tabindex="-1"></a>(~). This tells R to draw a panel for each unique value in the country column</span>
+<span id="cb30-371"><a href="#cb30-371" aria-hidden="true" tabindex="-1"></a>of the gapminder dataset.</span>
+<span id="cb30-372"><a href="#cb30-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-373"><a href="#cb30-373" aria-hidden="true" tabindex="-1"></a><span class="fu"># Modifying text</span></span>
+<span id="cb30-374"><a href="#cb30-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-375"><a href="#cb30-375" aria-hidden="true" tabindex="-1"></a>To clean this figure up for a publication we need to change some of the text</span>
+<span id="cb30-376"><a href="#cb30-376" aria-hidden="true" tabindex="-1"></a>elements. The x-axis is too cluttered, and the y axis should read</span>
+<span id="cb30-377"><a href="#cb30-377" aria-hidden="true" tabindex="-1"></a>"Life expectancy", rather than the column name in the data frame.</span>
+<span id="cb30-378"><a href="#cb30-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-379"><a href="#cb30-379" aria-hidden="true" tabindex="-1"></a>We can do this by adding a couple of different layers. The **theme** layer</span>
+<span id="cb30-380"><a href="#cb30-380" aria-hidden="true" tabindex="-1"></a>controls the axis text, and overall text size. Labels for the axes, plot</span>
+<span id="cb30-381"><a href="#cb30-381" aria-hidden="true" tabindex="-1"></a>title and any legend can be set using the <span class="in">`labs`</span> function. Legend titles</span>
+<span id="cb30-382"><a href="#cb30-382" aria-hidden="true" tabindex="-1"></a>are set using the same names we used in the <span class="in">`aes`</span> specification. Thus below</span>
+<span id="cb30-383"><a href="#cb30-383" aria-hidden="true" tabindex="-1"></a>the color legend title is set using <span class="in">`color = "Continent"`</span>, while the title</span>
+<span id="cb30-384"><a href="#cb30-384" aria-hidden="true" tabindex="-1"></a>of a fill legend would be set using <span class="in">`fill = "MyTitle"`</span>.</span>
+<span id="cb30-385"><a href="#cb30-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-386"><a href="#cb30-386" aria-hidden="true" tabindex="-1"></a><span class="in">```{r theme}</span></span>
+<span id="cb30-387"><a href="#cb30-387" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +</span></span>
+<span id="cb30-388"><a href="#cb30-388" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line() + </span></span>
+<span id="cb30-389"><a href="#cb30-389" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap( ~ country) +</span></span>
+<span id="cb30-390"><a href="#cb30-390" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb30-391"><a href="#cb30-391" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Year",              # x axis title</span></span>
+<span id="cb30-392"><a href="#cb30-392" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Life expectancy",   # y axis title</span></span>
+<span id="cb30-393"><a href="#cb30-393" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Figure 1",      # main title of figure</span></span>
+<span id="cb30-394"><a href="#cb30-394" aria-hidden="true" tabindex="-1"></a><span class="in">    color = "Continent"      # title of legend</span></span>
+<span id="cb30-395"><a href="#cb30-395" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb30-396"><a href="#cb30-396" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(axis.text.x = element_text(angle = 90, hjust = 1))</span></span>
+<span id="cb30-397"><a href="#cb30-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-398"><a href="#cb30-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-399"><a href="#cb30-399" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exporting the plot</span></span>
+<span id="cb30-400"><a href="#cb30-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-401"><a href="#cb30-401" aria-hidden="true" tabindex="-1"></a>The <span class="in">`ggsave()`</span> function allows you to export a plot created with ggplot. You can specify the dimension and resolution of your plot by adjusting the appropriate arguments (<span class="in">`width`</span>, <span class="in">`height`</span> and <span class="in">`dpi`</span>) to create high quality graphics for publication. In order to save the plot from above, we first assign it to a variable <span class="in">`lifeExp_plot`</span>, then tell <span class="in">`ggsave`</span> to save that plot in <span class="in">`png`</span> format to a directory called <span class="in">`results`</span>. (Make sure you have a <span class="in">`results/`</span> folder in your working directory.)</span>
+<span id="cb30-402"><a href="#cb30-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-403"><a href="#cb30-403" aria-hidden="true" tabindex="-1"></a><span class="in">```{r directory-check, echo=FALSE}</span></span>
+<span id="cb30-404"><a href="#cb30-404" aria-hidden="true" tabindex="-1"></a><span class="in">if (!dir.exists("results")) {</span></span>
+<span id="cb30-405"><a href="#cb30-405" aria-hidden="true" tabindex="-1"></a><span class="in">  dir.create("results")</span></span>
+<span id="cb30-406"><a href="#cb30-406" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb30-407"><a href="#cb30-407" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-408"><a href="#cb30-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-409"><a href="#cb30-409" aria-hidden="true" tabindex="-1"></a><span class="in">```{r save}</span></span>
+<span id="cb30-410"><a href="#cb30-410" aria-hidden="true" tabindex="-1"></a><span class="in">lifeExp_plot &lt;- ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +</span></span>
+<span id="cb30-411"><a href="#cb30-411" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_line() + facet_wrap( ~ country) +</span></span>
+<span id="cb30-412"><a href="#cb30-412" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb30-413"><a href="#cb30-413" aria-hidden="true" tabindex="-1"></a><span class="in">    x = "Year",              # x axis title</span></span>
+<span id="cb30-414"><a href="#cb30-414" aria-hidden="true" tabindex="-1"></a><span class="in">    y = "Life expectancy",   # y axis title</span></span>
+<span id="cb30-415"><a href="#cb30-415" aria-hidden="true" tabindex="-1"></a><span class="in">    title = "Figure 1",      # main title of figure</span></span>
+<span id="cb30-416"><a href="#cb30-416" aria-hidden="true" tabindex="-1"></a><span class="in">    color = "Continent"      # title of legend</span></span>
+<span id="cb30-417"><a href="#cb30-417" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb30-418"><a href="#cb30-418" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(axis.text.x = element_text(angle = 90, hjust = 1))</span></span>
+<span id="cb30-419"><a href="#cb30-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-420"><a href="#cb30-420" aria-hidden="true" tabindex="-1"></a><span class="in">ggsave(filename = "results/lifeExp.png", plot = lifeExp_plot, width = 15, height = 15, dpi = 300, units = "cm")</span></span>
+<span id="cb30-421"><a href="#cb30-421" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-422"><a href="#cb30-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-423"><a href="#cb30-423" aria-hidden="true" tabindex="-1"></a>There are two nice things about <span class="in">`ggsave`</span>. First, it defaults to the last plot, so if you omit the <span class="in">`plot`</span> argument it will automatically save the last plot you created with <span class="in">`ggplot`</span>. Secondly, it tries to determine the format you want to save your plot in from the file extension you provide for the filename (for example <span class="in">`.png`</span> or <span class="in">`.pdf`</span>). If you need to, you can specify the format explicitly in the <span class="in">`device`</span> argument.</span>
+<span id="cb30-424"><a href="#cb30-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-425"><a href="#cb30-425" aria-hidden="true" tabindex="-1"></a>This is a taste of what you can do with ggplot2. RStudio provides a</span>
+<span id="cb30-426"><a href="#cb30-426" aria-hidden="true" tabindex="-1"></a>really useful <span class="co">[</span><span class="ot">cheat sheet</span><span class="co">][cheat]</span> of the different layers available, and more</span>
+<span id="cb30-427"><a href="#cb30-427" aria-hidden="true" tabindex="-1"></a>extensive documentation is available on the <span class="co">[</span><span class="ot">ggplot2 website</span><span class="co">][ggplot-doc]</span>. All RStudio cheat sheets are available from the <span class="co">[</span><span class="ot">RStudio website</span><span class="co">][cheat_all]</span>.</span>
+<span id="cb30-428"><a href="#cb30-428" aria-hidden="true" tabindex="-1"></a>Finally, if you have no idea how to change something, a quick Google search will</span>
+<span id="cb30-429"><a href="#cb30-429" aria-hidden="true" tabindex="-1"></a>usually send you to a relevant question and answer on Stack Overflow with reusable</span>
+<span id="cb30-430"><a href="#cb30-430" aria-hidden="true" tabindex="-1"></a>code to modify!</span>
+<span id="cb30-431"><a href="#cb30-431" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-432"><a href="#cb30-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-433"><a href="#cb30-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-434"><a href="#cb30-434" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 5</span></span>
-<span id="cb30-435"><a href="#cb30-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-436"><a href="#cb30-436" aria-hidden="true" tabindex="-1"></a>Generate boxplots to compare life expectancy between the different continents during the available years.</span>
-<span id="cb30-437"><a href="#cb30-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-438"><a href="#cb30-438" aria-hidden="true" tabindex="-1"></a>Advanced:</span>
-<span id="cb30-439"><a href="#cb30-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-440"><a href="#cb30-440" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rename y axis as Life Expectancy.</span>
-<span id="cb30-441"><a href="#cb30-441" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Remove x axis labels.</span>
+<span id="cb30-433"><a href="#cb30-433" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge 5</span></span>
+<span id="cb30-434"><a href="#cb30-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-435"><a href="#cb30-435" aria-hidden="true" tabindex="-1"></a>Generate boxplots to compare life expectancy between the different continents during the available years.</span>
+<span id="cb30-436"><a href="#cb30-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-437"><a href="#cb30-437" aria-hidden="true" tabindex="-1"></a>Advanced:</span>
+<span id="cb30-438"><a href="#cb30-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-439"><a href="#cb30-439" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rename y axis as Life Expectancy.</span>
+<span id="cb30-440"><a href="#cb30-440" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Remove x axis labels.</span>
+<span id="cb30-441"><a href="#cb30-441" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-442"><a href="#cb30-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-443"><a href="#cb30-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-444"><a href="#cb30-444" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
-<span id="cb30-445"><a href="#cb30-445" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 5</span></span>
-<span id="cb30-446"><a href="#cb30-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-447"><a href="#cb30-447" aria-hidden="true" tabindex="-1"></a>Here a possible solution:</span>
-<span id="cb30-448"><a href="#cb30-448" aria-hidden="true" tabindex="-1"></a><span class="in">`xlab()`</span> and <span class="in">`ylab()`</span> set labels for the x and y axes, respectively</span>
-<span id="cb30-449"><a href="#cb30-449" aria-hidden="true" tabindex="-1"></a>The axis title, text and ticks are attributes of the theme and must be modified within a <span class="in">`theme()`</span> call.</span>
-<span id="cb30-450"><a href="#cb30-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-451"><a href="#cb30-451" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch5-sol}</span></span>
-<span id="cb30-452"><a href="#cb30-452" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = continent, y = lifeExp, fill = continent)) +</span></span>
-<span id="cb30-453"><a href="#cb30-453" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_boxplot() + facet_wrap(~year) +</span></span>
-<span id="cb30-454"><a href="#cb30-454" aria-hidden="true" tabindex="-1"></a><span class="in"> ylab("Life Expectancy") +</span></span>
-<span id="cb30-455"><a href="#cb30-455" aria-hidden="true" tabindex="-1"></a><span class="in"> theme(axis.title.x=element_blank(),</span></span>
-<span id="cb30-456"><a href="#cb30-456" aria-hidden="true" tabindex="-1"></a><span class="in">       axis.text.x = element_blank(),</span></span>
-<span id="cb30-457"><a href="#cb30-457" aria-hidden="true" tabindex="-1"></a><span class="in">       axis.ticks.x = element_blank())</span></span>
-<span id="cb30-458"><a href="#cb30-458" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-459"><a href="#cb30-459" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-443"><a href="#cb30-443" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}    </span>
+<span id="cb30-444"><a href="#cb30-444" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Solution to challenge 5</span></span>
+<span id="cb30-445"><a href="#cb30-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-446"><a href="#cb30-446" aria-hidden="true" tabindex="-1"></a>Here a possible solution:</span>
+<span id="cb30-447"><a href="#cb30-447" aria-hidden="true" tabindex="-1"></a><span class="in">`xlab()`</span> and <span class="in">`ylab()`</span> set labels for the x and y axes, respectively</span>
+<span id="cb30-448"><a href="#cb30-448" aria-hidden="true" tabindex="-1"></a>The axis title, text and ticks are attributes of the theme and must be modified within a <span class="in">`theme()`</span> call.</span>
+<span id="cb30-449"><a href="#cb30-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-450"><a href="#cb30-450" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ch5-sol}</span></span>
+<span id="cb30-451"><a href="#cb30-451" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data = gapminder, mapping = aes(x = continent, y = lifeExp, fill = continent)) +</span></span>
+<span id="cb30-452"><a href="#cb30-452" aria-hidden="true" tabindex="-1"></a><span class="in"> geom_boxplot() + facet_wrap(~year) +</span></span>
+<span id="cb30-453"><a href="#cb30-453" aria-hidden="true" tabindex="-1"></a><span class="in"> ylab("Life Expectancy") +</span></span>
+<span id="cb30-454"><a href="#cb30-454" aria-hidden="true" tabindex="-1"></a><span class="in"> theme(axis.title.x=element_blank(),</span></span>
+<span id="cb30-455"><a href="#cb30-455" aria-hidden="true" tabindex="-1"></a><span class="in">       axis.text.x = element_blank(),</span></span>
+<span id="cb30-456"><a href="#cb30-456" aria-hidden="true" tabindex="-1"></a><span class="in">       axis.ticks.x = element_blank())</span></span>
+<span id="cb30-457"><a href="#cb30-457" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-458"><a href="#cb30-458" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb30-459"><a href="#cb30-459" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-460"><a href="#cb30-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-461"><a href="#cb30-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-462"><a href="#cb30-462" aria-hidden="true" tabindex="-1"></a><span class="ot">[base]: https://www.statmethods.net/graphs/index.html</span></span>
-<span id="cb30-463"><a href="#cb30-463" aria-hidden="true" tabindex="-1"></a><span class="ot">[lattice]: https://www.statmethods.net/advgraphs/trellis.html</span></span>
-<span id="cb30-464"><a href="#cb30-464" aria-hidden="true" tabindex="-1"></a><span class="ot">[ggplot2]: https://www.statmethods.net/advgraphs/ggplot2.html</span></span>
-<span id="cb30-465"><a href="#cb30-465" aria-hidden="true" tabindex="-1"></a><span class="ot">[cheat]: https://www.rstudio.org/links/data_visualization_cheat_sheet</span></span>
-<span id="cb30-466"><a href="#cb30-466" aria-hidden="true" tabindex="-1"></a><span class="ot">[cheat_all]: https://www.rstudio.com/resources/cheatsheets/</span></span>
-<span id="cb30-467"><a href="#cb30-467" aria-hidden="true" tabindex="-1"></a><span class="ot">[ggplot-doc]: https://ggplot2.tidyverse.org/reference/</span></span>
+<span id="cb30-461"><a href="#cb30-461" aria-hidden="true" tabindex="-1"></a><span class="ot">[base]: https://www.statmethods.net/graphs/index.html</span></span>
+<span id="cb30-462"><a href="#cb30-462" aria-hidden="true" tabindex="-1"></a><span class="ot">[lattice]: https://www.statmethods.net/advgraphs/trellis.html</span></span>
+<span id="cb30-463"><a href="#cb30-463" aria-hidden="true" tabindex="-1"></a><span class="ot">[ggplot2]: https://www.statmethods.net/advgraphs/ggplot2.html</span></span>
+<span id="cb30-464"><a href="#cb30-464" aria-hidden="true" tabindex="-1"></a><span class="ot">[cheat]: https://www.rstudio.org/links/data_visualization_cheat_sheet</span></span>
+<span id="cb30-465"><a href="#cb30-465" aria-hidden="true" tabindex="-1"></a><span class="ot">[cheat_all]: https://www.rstudio.com/resources/cheatsheets/</span></span>
+<span id="cb30-466"><a href="#cb30-466" aria-hidden="true" tabindex="-1"></a><span class="ot">[ggplot-doc]: https://ggplot2.tidyverse.org/reference/</span></span>
+<span id="cb30-467"><a href="#cb30-467" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-468"><a href="#cb30-468" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-469"><a href="#cb30-469" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-470"><a href="#cb30-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-471"><a href="#cb30-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-472"><a href="#cb30-472" aria-hidden="true" tabindex="-1"></a><span class="fu"># keypoints</span></span>
-<span id="cb30-473"><a href="#cb30-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-474"><a href="#cb30-474" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`ggplot2`</span> to create plots.</span>
-<span id="cb30-475"><a href="#cb30-475" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Think about graphics in layers: aesthetics, geometry, statistics, scale transformation, and grouping.</span>
+<span id="cb30-471"><a href="#cb30-471" aria-hidden="true" tabindex="-1"></a><span class="fu"># keypoints</span></span>
+<span id="cb30-472"><a href="#cb30-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-473"><a href="#cb30-473" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`ggplot2`</span> to create plots.</span>
+<span id="cb30-474"><a href="#cb30-474" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Think about graphics in layers: aesthetics, geometry, statistics, scale transformation, and grouping.</span>
+<span id="cb30-475"><a href="#cb30-475" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-476"><a href="#cb30-476" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-477"><a href="#cb30-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-478"><a href="#cb30-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-479"><a href="#cb30-479" aria-hidden="true" tabindex="-1"></a><span class="fu">### Acknowledgements</span></span>
-<span id="cb30-480"><a href="#cb30-480" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Links to the original materials:</span><span class="co">](https://swcarpentry.github.io/r-novice-gapminder/instructor/08-plot-ggplot2.html)</span></span>
-<span id="cb30-481"><a href="#cb30-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-482"><a href="#cb30-482" aria-hidden="true" tabindex="-1"></a>Materials licensed under CC-BY 4.0 by the authors</span>
-<span id="cb30-483"><a href="#cb30-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-484"><a href="#cb30-484" aria-hidden="true" tabindex="-1"></a>Template licensed under CC-BY 4.0 by The Carpentries</span>
-<span id="cb30-485"><a href="#cb30-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-486"><a href="#cb30-486" aria-hidden="true" tabindex="-1"></a>Built with sandpaper (0.16.10), pegboard (0.7.7), and varnish (1.0.5)</span>
-<span id="cb30-487"><a href="#cb30-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-488"><a href="#cb30-488" aria-hidden="true" tabindex="-1"></a><span class="fu">#### R Session info</span></span>
-<span id="cb30-491"><a href="#cb30-491" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-492"><a href="#cb30-492" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
-<span id="cb30-493"><a href="#cb30-493" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-494"><a href="#cb30-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-495"><a href="#cb30-495" aria-hidden="true" tabindex="-1"></a>############## END</span>
+<span id="cb30-478"><a href="#cb30-478" aria-hidden="true" tabindex="-1"></a><span class="fu">### Acknowledgements</span></span>
+<span id="cb30-479"><a href="#cb30-479" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Links to the original materials:</span><span class="co">](https://swcarpentry.github.io/r-novice-gapminder/instructor/08-plot-ggplot2.html)</span></span>
+<span id="cb30-480"><a href="#cb30-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-481"><a href="#cb30-481" aria-hidden="true" tabindex="-1"></a>Materials licensed under CC-BY 4.0 by the authors</span>
+<span id="cb30-482"><a href="#cb30-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-483"><a href="#cb30-483" aria-hidden="true" tabindex="-1"></a>Template licensed under CC-BY 4.0 by The Carpentries</span>
+<span id="cb30-484"><a href="#cb30-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-485"><a href="#cb30-485" aria-hidden="true" tabindex="-1"></a>Built with sandpaper (0.16.10), pegboard (0.7.7), and varnish (1.0.5)</span>
+<span id="cb30-486"><a href="#cb30-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-487"><a href="#cb30-487" aria-hidden="true" tabindex="-1"></a><span class="fu">#### R Session info</span></span>
+<span id="cb30-490"><a href="#cb30-490" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-491"><a href="#cb30-491" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb30-492"><a href="#cb30-492" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-493"><a href="#cb30-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-494"><a href="#cb30-494" aria-hidden="true" tabindex="-1"></a>############## END</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

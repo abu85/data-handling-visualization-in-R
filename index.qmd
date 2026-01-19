@@ -154,27 +154,14 @@ gapminder %>% filter(year == 2007) %>%
 
 ##### 1. Download this repository:
 
-```bash
-wget https://github.com/abu85/intro-to-linux-and-R/archive/refs/heads/main.zip . # download with 'wget' command
-```
+[Repository](https://github.com/abu85/data-handling-visualization-in-R)
 
-##### 2. Extract and enter into the repository folder📁
-```bash
 
-# sudo apt install unzip  # incase your computer need that packs
+- Click on `<>Code` 
 
-unzip main.zip            # extract everything from the zip file to folder
+- Click on Dowlload ZIP, will be downloaded
 
-ls                        # see the file folder
-
-cd intro-to-linux-and-R   # change and enter into the folder(directory)
-```
-
-Or Clone this repository (only if you have git tool in linux):
-```bash
-git clone https://github.com/YOUR_USERNAME/intro-to-R-genomic-selection.git
-cd intro-to-linux-and-R
-```
+- Extract and enter into the repository folder📁
 
 :::
 
