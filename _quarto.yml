@@ -1,0 +1,84 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  site-url: "https://yourdomain.com"
+  description: "Personal website of a biologist and bioinformatician"
+  favicon: "images/favicon.ico"
+
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Pre-course"
+        href: ./scripts/00_precourse.html
+      - text: "Lectures"
+        menu:
+          - text: "tidyr lecture"
+            href: ./slides/slides_tidyr.pdf
+          - text: "dplyr lecture"
+            href: ./slides/slides_dplyr.pdf
+          - text: "ggplot2 lecture"
+            href: ./slides/ggplot_gsvms_2026.html
+      - text: "Lab exercises"
+        menu:
+          - text: "tidyr practical"
+            href: ./scripts/tidyr_abs_2026.html
+          - text: "dplyr practical"
+            href: ./scripts/dplyr_abs_2026.html
+          - text: "ggplot2 lab"
+            href: ./practicals/ggplot2_lab_part1.html          
+    right:
+      - icon: softwerecarpentry
+        href: 
+      - icon: envelope
+        href: mailto:your.email@example.com
+
+  sidebar:
+    - title: "Tutorials"
+      style: "docked"
+      background: light
+      contents:
+        - tutorials.qmd
+        - tutorial-1.qmd
+        - tutorial-2.qmd
+        - r_tutorial_v14.Rmd
+
+    - title: "How-To Guides"
+      contents:
+        - howto.qmd
+        - howto-rmarkdown.qmd
+        - howto-quarto.qmd
+
+    - title: "Fundamentals"
+      contents:
+        - fundamentals.qmd
+        - bioinformatics_basics.qmd
+        - statistics_for_biology.qmd
+
+    - title: "Registration"
+      contents:
+        - 
+
+    - title: "Blog"
+      contents:
+        - blog.qmd
+        - posts/post-1.qmd
+        - posts/post-2.qmd
+
+    - title: "Publications"
+      contents:
+        - publications.qmd
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: github

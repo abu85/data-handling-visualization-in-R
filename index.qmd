@@ -1,0 +1,192 @@
+---
+title: "Data handling with `tidyr` & `dplyr` and visualization with `ggplot2`"
+subtitle: ""
+toc: false
+date: ""
+sidebar: false
+image: "assets/images/seo.webp"
+format:
+  html:
+    css: "./styles.css"
+    number-sections: false
+    title-block-banner: false
+    toc: true
+    toc-depth: 5
+    toc-location: right
+execute:
+  freeze: false
+---
+
+## Welcome to the Day2 (2026-01-20)
+
+### 📅 Schedule
+
+
+ **Tuesday**
+ 
+| Time |	Task or	Topic|
+|-----|------|------|
+| 09.15-10.00 |	Lecture	Data handling with tidyR|
+| coffee	break	|
+| 10.15-11.00|	Exercise/lab/practice	Data handling with tidyR|
+|coffee	break	|
+|11.15-12.00|	Lecture & exercise	Data handling with tidyR|
+|LUNCH	break	|
+|13.00-14.00|	Lecture & exercise	Visualization with ggplot2 P1|
+|coffee	break	|
+|14.20-15.45|	exercise & recap	Visualization with ggplot2 P1|
+
+ **Wednesday**
+ 
+| Time |	Task or	Topic|
+|-----|------|------|
+| 09.15-10.00	|Lecture	Data handling with dplyR|
+|coffee	break	|
+|10.15-11.00|	Exercise/lab/practice	Data handling with dplyR|
+|coffee	break	|
+|11.15-12.00|	Exercise/Recap	Data handling with dplyR|
+|LUNCH	break	|
+|13.00-14.00|	exercise	ggplot2 P2 (advanced)|
+|coffee	break	|
+|14.20-15.30|	exercise &  recap 	|
+|15.30-15.45|	feedback	|
+
+
+
+
+### Content
+
+### 3.1 Tidyr lecture & lab
+
+Lecture: 
+
+Lab exercises: finish all the *challenges*
+
+### 3.2 ggplot part 1
+
+Lecture: 
+
+**Lab exercises**: finish all the *challenges*
+
+*Bonus practice*:[Basics](https://nbisweden.github.io/raukr-2023/labs/ggplot/#basics)) *upto chapter: 1.17*
+
+### 3.3 dplyr lecture & lab
+
+lecture: slides_dplyr.pdf
+**Lab exercises**: finish all the *challenges*
+
+### 3.4 ggplot part 2
+
+Lecture: same lecture 
+
+**Lab exercises**: remake the following graphs (website): 
+
+   2. [Economist Scatterplot](https://nbisweden.github.io/raukr-2023/labs/ggplot/#economist-scatterplot) and/or
+   3. [WSJ Heatmap](https://nbisweden.github.io/raukr-2023/labs/ggplot/#wsj-heatmap)
+
+-----------------------------------------------------------
+
+### Help!
+
+#### i) Datasets used in these lectures and labs:
+
+[storms](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/storms.csv), [cases](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/cases.csv), [pollution](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/pollution.csv), [tb](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/tb.csv),[ gapminder_data.csv](https://canvas.slu.se/courses/16190/files/1666857?wrap=1),[ gapminder_wide.csv](https://canvas.slu.se/courses/16190/files/1666858?wrap=1)
+
+
+
+How to load data (e.g., 'case' data): 
+
+```
+# install.packages("readr")
+
+library(readr)
+
+cases_raw <- https://github.com/rstudio/EDAWR/blob/master/data-raw/cases.csv?raw=true
+
+cases <- read_csv(cases_raw)
+```
+
+#### ii) Font problem!!! Solution (by Annrose):
+
+```
+# install.packages(devtools)
+library(devtools)
+library(extrafont)
+font_import()
+loadfonts(device = "win")
+loadfonts()
+fonts()
+```
+It has enabled you to register several fonts to my Windows and is now working
+
+
+
+#### iii) End codes!
+```
+gapminder %>% filter(year == 2007) %>%
+   mutate(gdpPercap = gdpPercap / 1000) %>%
+   ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +
+   geom_point(size = 3) + scale_x_log10() + # Log scale for better visualization
+   labs(title = "Life Expectancy vs. GDP per Capita (2007)", x = "GDP per Capita (in thousands)", y = "Life Expectancy", color = "Continent") +
+   theme_minimal()
+```
+#### iv) References:
+
+  - tidyr: This lab exercise is taken from [Software Carpentry: 'R for Reproducible Scientific Analysis'](https://swcarpentry.github.io/r-novice-gapminder/13-tidyr.html)
+
+  - dplyr: This lab exercise is taken from [Software Carpentry: 'R for Reproducible Scientific Analysis'](https://swcarpentry.github.io/r-novice-gapminder/12-dplyr.html)
+
+-------------------------------------
+
+
+
+::: {.callout-important collapse=true}
+### 👉Tools needed
+
+- Tidyverse
+:::
+
+
+
+### 📚 Course materieals
+::: {.callout-important collapse=true}
+### 👉️ [Course materieals]()
+
+##### 1. Download this repository:
+
+```bash
+wget https://github.com/abu85/intro-to-linux-and-R/archive/refs/heads/main.zip . # download with 'wget' command
+```
+
+##### 2. Extract and enter into the repository folder📁
+```bash
+
+# sudo apt install unzip  # incase your computer need that packs
+
+unzip main.zip            # extract everything from the zip file to folder
+
+ls                        # see the file folder
+
+cd intro-to-linux-and-R   # change and enter into the folder(directory)
+```
+
+Or Clone this repository (only if you have git tool in linux):
+```bash
+git clone https://github.com/YOUR_USERNAME/intro-to-R-genomic-selection.git
+cd intro-to-linux-and-R
+```
+
+:::
+
+
+::: {.callout-tip}
+### Tip
+
+### 📬 For questions or feedback, contact at `abu.siddique@slu.se`
+
+:::
+
+
+**License**
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).

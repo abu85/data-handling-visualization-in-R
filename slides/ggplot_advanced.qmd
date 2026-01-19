@@ -1,0 +1,391 @@
+---
+title: "`ggplot2` in `R` Part 2"
+date: last-modified
+format: 
+ revealjs:
+   slide-number: c/t
+   logo: assets/logo.png
+   width: 1600
+   height: 900
+   theme: simple
+
+---
+
+## Packages {visibility="hidden"}
+
+```{r}
+#| echo: FALSE
+
+library(dplyr) # data wrangling
+library(tidyr) # tidy thre data 
+library(ggplot2) # grammer of graphics
+library(palmerpenguins) # Penguins data
+library(kableExtra) # for table
+library(patchwork) # multiple plot alignment
+library(plotly) # interactive plot
+library(ggiraph) # interactive plot
+```
+
+
+## Data • `diamonds`
+
+```{r}
+#| echo: false
+head(diamonds) %>% na.omit() %>%
+  kable("html",escape=F,align="c") %>%
+  kable_styling(bootstrap_options=c("striped","hover","responsive","condensed"),
+              position="left",full_width = F)
+```
+
+```{r}
+str(diamonds)
+```
+
+::: notes
+R `data.frame` is a tabular format with rows and columns just like a spreadsheet.
+:::
+
+
+## Aesthetics
+
+```{r warning=FALSE}
+#| fig-height: 5
+#| fig-width: 10
+x1 <- ggplot(iris) +
+  geom_point(aes(x=Sepal.Length,y=Sepal.Width))+
+  stat_smooth(aes(x=Sepal.Length,y=Sepal.Width))
+
+x2 <- ggplot(iris,aes(x=Sepal.Length,y=Sepal.Width))+
+                      geom_point() + geom_smooth()
+
+wrap_plots(x1,x2,nrow=1,ncol=2)
+```
+
+::: notes
+If the same aesthetics are used in multiple geoms, they can be moved to `ggplot()`.
+:::
+
+## Scales • `Discrete Colors`
+
+-   scales: position, color, fill, size, shape, alpha, linetype
+-   syntax: `scale_<aesthetic>_<type>`
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5
+p <- ggplot(iris)+geom_point(aes(x=Sepal.Length,
+                     y=Sepal.Width,color=Species))
+p
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5
+p + scale_color_manual(
+     name="Manual",
+     values=c("#5BC0EB","#FDE74C","#9BC53D"))
+```
+:::
+:::
+
+::: notes
+Scales are used to control the aesthetics. For example the aesthetic color is mapped to a variable `x`. The palette of colors used, the mapping of which color to which value, the upper and lower limit of the data and colors etc is controlled by scales.
+
+![](assets/scales.png){width="50%"}
+:::
+
+## Scales • `Continuous Colors`
+
+-   In RStudio, type `scale_`, then press **TAB**
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5.5
+p <- ggplot(iris)+
+      geom_point(aes(x=Sepal.Length,
+                     y=Sepal.Width,
+      shape=Species,color=Petal.Length))
+p
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5.5
+p +
+scale_color_gradient(name="Pet Len",
+  breaks=range(iris$Petal.Length),
+  labels=c("Min","Max"),
+  low="black",high="red")
+
+```
+:::
+:::
+
+::: notes
+Continuous colours can be changed using `scale_color_gradient()` for two colour gradient. Any number of breaks and colours can be specified using `scale_color_gradientn()`.
+:::
+
+## Scales • `Shape`
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5.5
+p <- ggplot(iris)+
+      geom_point(aes(x=Sepal.Length,
+                     y=Sepal.Width,
+      shape=Species,color=Species))
+p
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5.5
+p +
+scale_color_manual(name="New",
+   values=c("blue","green","red"))+
+scale_shape_manual(name="Bla",values=c(0,1,2))
+
+```
+:::
+:::
+
+::: notes
+Shape scale can be adjusted using `scale_shape_manual()`. Multiple mappings for the same variable groups legends.
+:::
+
+## Scales • `Axes`
+
+-   scales: x, y
+-   syntax: `scale_<axis>_<type>`
+-   arguments: name, limits, breaks, labels
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5
+p <- ggplot(iris)+geom_point(
+  aes(x=Sepal.Length,y=Sepal.Width))
+p
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5
+p + scale_x_continuous(name="Sepal Length",
+        breaks=seq(1,8),limits=c(3,5))
+```
+:::
+:::
+
+::: notes
+The x and y axes are also controlled by scales. The axis break points, the break point text and limits are controlled through scales.
+
+When setting limits using `scale_`, the data outside the limits are dropped. Limits can also be set using `lims(x=c(3,5))` or `xlim(c(3,5))`. When mapping, `coord_map()` or `coord_cartesian()` is recommended for setting limits.
+:::
+
+
+
+
+## Theme • `Text`
+
+```{r}
+#| eval: false
+element_text(family=NULL,face=NULL,color=NULL,size=NULL,hjust=NULL,
+             vjust=NULL, angle=NULL,lineheight=NULL,margin = NULL)
+```
+
+```{r}
+#| echo: false
+p <- diamonds %>%
+      filter(cut=="Fair"|cut=="Good",color=="D"|color=="E") %>%
+      droplevels() %>%
+      ggplot(aes(carat,price,alpha=color,shape=cut))+
+            geom_point()+
+            labs(title="Title",subtitle="subtitle")+
+            facet_grid(cut~color)
+```
+
+```{r}
+p <- p + theme(
+    axis.title=element_text(color="#e41a1c"),
+    axis.text=element_text(color="#377eb8"),
+    plot.title=element_text(color="#4daf4a"),
+    plot.subtitle=element_text(color="#984ea3"),
+    legend.text=element_text(color="#ff7f00"),
+    legend.title=element_text(color="#ffff33"),
+    strip.text=element_text(color="#a65628")
+)
+```
+
+```{r}
+#| fig-height: 4.6
+#| fig-width: 9
+#| echo: false
+dfr <- data.frame(value=rep(1,7),label=c("axis.title","axis.text","plot.title","plot.subtitle","legend.text","legend.title","strip.text"),stringsAsFactors=FALSE) %>%
+  mutate(label=factor(label,levels=c("axis.title","axis.text","plot.title","plot.subtitle","legend.text","legend.title","strip.text")))
+
+q <- ggplot(dfr,aes(x=label,y=value,fill=label))+
+  geom_bar(stat="identity")+
+  labs(x="",y="")+
+  coord_flip()+
+  scale_fill_manual(values=c("#e41a1c","#377eb8","#4daf4a","#984ea3","#ff7f00","#ffff33","#a65628"))+
+  theme_minimal(base_size=20)+
+  theme(
+    legend.position="none",
+    axis.text.x=element_blank(),
+    axis.ticks=element_blank(),
+    panel.grid=element_blank())
+
+wrap_plots(p,q,nrow=1,widths=c(3,1))
+```
+
+## Theme • Rect
+
+```{r}
+#| eval: false
+element_rect(fill=NULL,color=NULL,size=NULL,linetype=NULL)
+```
+
+```{r}
+#| echo: false
+p <- diamonds %>%
+      filter(cut=="Fair"|cut=="Good",color=="D"|color=="E") %>%
+      droplevels() %>%
+      ggplot(aes(carat,price,alpha=color,shape=cut))+
+            geom_point()+
+            labs(title="Title",subtitle="subtitle")+
+            facet_grid(cut~color)
+```
+
+```{r}
+p <- p + theme(
+    plot.background=element_rect(fill="#b3e2cd"),
+    panel.background=element_rect(fill="#fdcdac"),
+    panel.border=element_rect(fill=NA,color="#cbd5e8",size=3),
+    legend.background=element_rect(fill="#f4cae4"),
+    legend.box.background=element_rect(fill="#e6f5c9"),
+    strip.background=element_rect(fill="#fff2ae")
+)
+```
+
+```{r}
+#| fig-height: 4.8
+#| fig-width: 9
+#| echo: false
+dfr <- data.frame(value=rep(1,6),label=c("plot.background","panel.background","panel.border","legend.background","legend.box.background","strip.background"),stringsAsFactors=FALSE) %>%
+  mutate(label=factor(label,levels=c("plot.background","panel.background","panel.border","legend.background","legend.box.background","strip.background")))
+
+q <- ggplot(dfr,aes(x=label,y=value,fill=label))+
+  geom_bar(stat="identity")+
+  labs(x="",y="")+
+  coord_flip()+
+  scale_fill_manual(values=c("#b3e2cd","#fdcdac","#cbd5e8","#f4cae4","#e6f5c9","#fff2ae"))+
+  theme_minimal(base_size=20)+
+  theme(
+    legend.position="none",
+    axis.text.x=element_blank(),
+    axis.ticks=element_blank(),
+    panel.grid=element_blank())
+
+wrap_plots(p,q,nrow=1,widths=c(3,1))
+```
+
+## Theme • Reuse
+
+```{r}
+#| echo: false
+p <- diamonds %>%
+      filter(cut=="Fair"|cut=="Good"|cut=="Very Good") %>%
+      droplevels() %>%
+      ggplot(aes(carat,price,color=cut))+
+            geom_point()
+```
+
+```{r}
+newtheme <- theme_bw() + theme(
+  axis.ticks=element_blank(), panel.background=element_rect(fill="white"),
+  panel.grid.minor=element_blank(), panel.grid.major.x=element_blank(),
+  panel.grid.major.y=element_line(size=0.3,color="grey90"), panel.border=element_blank(),
+  legend.position="top", legend.justification="right"
+)
+```
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 3.4
+#| fig-width: 5
+p
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 3.5
+#| fig-width: 4.5
+p + newtheme
+```
+:::
+:::
+
+## Professional themes
+
+![](assets/bbc.png){width="95%"}
+
+::: smaller
+[How BBC works with R graphics](https://medium.com/bbc-visual-and-data-journalism/how-the-bbc-visual-and-data-journalism-team-works-with-graphics-in-r-ed0b35693535)
+:::
+
+
+
+## Help
+
+::: columns
+::: {.column width="30%"}
+-   [**ggplot2 book**](https://ggplot2-book.org/)\
+    ![](https://ggplot2-book.org/cover.jpg){height="200px"}\
+-   [**The R cookbook**](https://r-graphics.org/)\
+    ![](https://r-graphics.org/cover.jpg){height="200px"}
+:::
+
+::: {.column width="70%"}
+-   [**ggplot2 official reference**](http://ggplot2.tidyverse.org/reference/)\
+-   [**RStudio cheatsheet**](https://www.rstudio.com/resources/cheatsheets/)\
+-   [**r-statistics ggplot2 cheatsheet**](http://r-statistics.co/ggplot2-cheatsheet.html)\
+-   [**StackOverflow**](https://stackoverflow.com/)\
+-   Blogs, [R-Bloggers](https://www.r-bloggers.com/), [Cedric Scherer](https://www.cedricscherer.com/tags/ggplot2/) etc.
+:::
+:::
+
+##  {background-image="../../assets/images/cover.jpg"}
+
+### Thank you! Questions?
+::: columns
+::: {.column width="70%"}
+![](assets/ggplot2_masterpiece_v1.png)
+:::
+:::
+
+Acknowledgements:
+
+[ • [SLUBI](https://www.slubi.se/) • [3Bs](https://www.slubi.se/3BS.html/) • Slides adapted from [RaukR](https://nbisweden.github.io/workshop-RaukR-2306/)]{.smaller} • [GPL-3 License](https://choosealicense.com/licenses/gpl-3.0/)
+
