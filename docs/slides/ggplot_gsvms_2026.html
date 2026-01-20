@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Abu Bakar Siddique, SLUBI">
-  <meta name="dcterms.date" content="2026-01-19">
+  <meta name="dcterms.date" content="2026-01-20">
   <title>ggplot2 in R Part 1 &amp; 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -407,7 +407,7 @@ Abu Bakar Siddique, SLUBI
 </div>
 </div>
 
-  <p class="date">2026-01-19</p>
+  <p class="date">2026-01-20</p>
 </section>
 
 <section id="graphs" class="slide level2">
@@ -2006,7 +2006,7 @@ Curated list of ggplot2 links: <a href="https://github.com/erikgahner/awesome-gg
 <section id="scales-discrete-colors" class="slide level2">
 <h2>Scales • <code>Discrete Colors</code></h2>
 <ul>
-<li>scales: position, color, fill, size, shape, alpha, linetype</li>
+<li>scales: position, <code>color</code>, fill, size, shape, alpha, linetype</li>
 <li>syntax: <code>scale_&lt;aesthetic&gt;_&lt;type&gt;</code></li>
 </ul>
 <div class="columns">
@@ -2052,6 +2052,51 @@ Curated list of ggplot2 links: <a href="https://github.com/erikgahner/awesome-gg
           display:block!important;
       }</style></aside>
 </section>
+<section id="scales-cvd-friendly-colors-palettes" class="slide level2">
+<h2>Scales • <code>CVD friendly colors (palettes)</code></h2>
+<ul>
+<li>scales: position, <code>color</code>, fill, size, shape, alpha, linetype</li>
+<li>syntax: <code>scale_&lt;aesthetic&gt;_&lt;type&gt;</code></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a>p <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-67-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a>p <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Greys"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-68-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>Scales are used to control the aesthetics. For example the aesthetic color is mapped to a variable <code>x</code>. The palette of colors used, the mapping of which color to which value, the upper and lower limit of the data and colors etc is controlled by scales.</p>
+<p><img data-src="assets/scales.png" style="width:50.0%"></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="scales-continuous-colors" class="slide level2">
 <h2>Scales • <code>Continuous Colors</code></h2>
 <ul>
@@ -2061,30 +2106,30 @@ Curated list of ggplot2 links: <a href="https://github.com/erikgahner/awesome-gg
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris)<span class="sc">+</span></span>
-<span id="cb68-2"><a></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,</span>
-<span id="cb68-3"><a></a>                     <span class="at">y=</span>Sepal.Width,</span>
-<span id="cb68-4"><a></a>      <span class="at">shape=</span>Species,<span class="at">color=</span>Petal.Length))</span>
-<span id="cb68-5"><a></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris)<span class="sc">+</span></span>
+<span id="cb70-2"><a></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,</span>
+<span id="cb70-3"><a></a>                     <span class="at">y=</span>Sepal.Width,</span>
+<span id="cb70-4"><a></a>      <span class="at">shape=</span>Species,<span class="at">color=</span>Petal.Length))</span>
+<span id="cb70-5"><a></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-67-1.png" width="528"></p>
+<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-69-1.png" width="528"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a>p <span class="sc">+</span></span>
-<span id="cb69-2"><a></a><span class="fu">scale_color_gradient</span>(<span class="at">name=</span><span class="st">"Pet Len"</span>,</span>
-<span id="cb69-3"><a></a>  <span class="at">breaks=</span><span class="fu">range</span>(iris<span class="sc">$</span>Petal.Length),</span>
-<span id="cb69-4"><a></a>  <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Min"</span>,<span class="st">"Max"</span>),</span>
-<span id="cb69-5"><a></a>  <span class="at">low=</span><span class="st">"black"</span>,<span class="at">high=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a></a>p <span class="sc">+</span></span>
+<span id="cb71-2"><a></a><span class="fu">scale_color_gradient</span>(<span class="at">name=</span><span class="st">"Pet Len"</span>,</span>
+<span id="cb71-3"><a></a>  <span class="at">breaks=</span><span class="fu">range</span>(iris<span class="sc">$</span>Petal.Length),</span>
+<span id="cb71-4"><a></a>  <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Min"</span>,<span class="st">"Max"</span>),</span>
+<span id="cb71-5"><a></a>  <span class="at">low=</span><span class="st">"black"</span>,<span class="at">high=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-68-1.png" width="528"></p>
+<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-70-1.png" width="528"></p>
 </figure>
 </div>
 </div>
@@ -2110,29 +2155,29 @@ Curated list of ggplot2 links: <a href="https://github.com/erikgahner/awesome-gg
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris)<span class="sc">+</span></span>
-<span id="cb70-2"><a></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,</span>
-<span id="cb70-3"><a></a>                     <span class="at">y=</span>Sepal.Width,</span>
-<span id="cb70-4"><a></a>      <span class="at">shape=</span>Species,<span class="at">color=</span>Species))</span>
-<span id="cb70-5"><a></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris)<span class="sc">+</span></span>
+<span id="cb72-2"><a></a>      <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,</span>
+<span id="cb72-3"><a></a>                     <span class="at">y=</span>Sepal.Width,</span>
+<span id="cb72-4"><a></a>      <span class="at">shape=</span>Species,<span class="at">color=</span>Species))</span>
+<span id="cb72-5"><a></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-69-1.png" width="528"></p>
+<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-71-1.png" width="528"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a></a>p <span class="sc">+</span></span>
-<span id="cb71-2"><a></a><span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">"New"</span>,</span>
-<span id="cb71-3"><a></a>   <span class="at">values=</span><span class="fu">c</span>(<span class="st">"blue"</span>,<span class="st">"green"</span>,<span class="st">"red"</span>))<span class="sc">+</span></span>
-<span id="cb71-4"><a></a><span class="fu">scale_shape_manual</span>(<span class="at">name=</span><span class="st">"Bla"</span>,<span class="at">values=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a></a>p <span class="sc">+</span></span>
+<span id="cb73-2"><a></a><span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">"New"</span>,</span>
+<span id="cb73-3"><a></a>   <span class="at">values=</span><span class="fu">c</span>(<span class="st">"blue"</span>,<span class="st">"green"</span>,<span class="st">"red"</span>))<span class="sc">+</span></span>
+<span id="cb73-4"><a></a><span class="fu">scale_shape_manual</span>(<span class="at">name=</span><span class="st">"Bla"</span>,<span class="at">values=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-70-1.png" width="528"></p>
+<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-72-1.png" width="528"></p>
 </figure>
 </div>
 </div>
@@ -2163,25 +2208,25 @@ Curated list of ggplot2 links: <a href="https://github.com/erikgahner/awesome-gg
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris)<span class="sc">+</span><span class="fu">geom_point</span>(</span>
-<span id="cb72-2"><a></a>  <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,<span class="at">y=</span>Sepal.Width))</span>
-<span id="cb72-3"><a></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris)<span class="sc">+</span><span class="fu">geom_point</span>(</span>
+<span id="cb74-2"><a></a>  <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length,<span class="at">y=</span>Sepal.Width))</span>
+<span id="cb74-3"><a></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-71-1.png" width="480"></p>
+<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-73-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a></a>p <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">name=</span><span class="st">"Sepal Length"</span>,</span>
-<span id="cb73-2"><a></a>        <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">8</span>),<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a></a>p <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">name=</span><span class="st">"Sepal Length"</span>,</span>
+<span id="cb75-2"><a></a>        <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">8</span>),<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-72-1.png" width="480"></p>
+<p><img data-src="ggplot_gsvms_2026_files/figure-revealjs/unnamed-chunk-74-1.png" width="480"></p>
 </figure>
 </div>
 </div>

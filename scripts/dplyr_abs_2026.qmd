@@ -45,7 +45,15 @@ cat("# ","Overview")
 ---------------------------------------------------------------
 
 ```{r, include=FALSE}
-gapminder <- read.csv("data/gapminder_data.csv", header = TRUE)
+# install.packages("gapminder")  # install the package 
+library(gapminder)               # load the data
+
+# or import from your laptop
+# gapminder <- read.csv("data/gapminder_data.csv", header = TRUE)
+```
+
+```{r}
+str(gapminder)   # see the data structure
 ```
 
 Manipulation of data frames means many things to many researchers: we often
@@ -54,7 +62,7 @@ data by a certain variable(s), or we even calculate summary statistics. We can
 do these operations using the normal base R operations:
 
 ```{r}
-mean(gapminder$gdpPercap[gapminder$continent == "Africa"])
+mean(gapminder$gdpPercap[gapminder$continent == "Africa"])   #  calculate average for African continent
 mean(gapminder$gdpPercap[gapminder$continent == "Americas"])
 mean(gapminder$gdpPercap[gapminder$continent == "Asia"])
 ```
@@ -110,7 +118,7 @@ our data frame we could use the `select()` function. This will keep only the
 variables you select.
 
 ```{r}
-year_country_gdp <- select(gapminder, year, country, gdpPercap)
+year_country_gdp <- select(gapminder, year, country, gdpPercap) # keep onöy certain columns
 ```
 
 ![](fig/13-dplyr-fig1.png){alt='Diagram illustrating use of select function to select two columns of a data frame'}
@@ -119,7 +127,7 @@ If we want to remove one column only from the `gapminder` data, for example,
 removing the `continent` column.
 
 ```{r}
-smaller_gapminder_data <- select(gapminder, -continent)
+smaller_gapminder_data <- select(gapminder, -continent) # remove continent variable
 ```
 
 If we open up `year_country_gdp` we'll see that it only contains the year,
@@ -129,8 +137,8 @@ is unlike anything we've seen in R before, let's repeat what we've done above
 using pipes.
 
 ```{r}
-year_country_gdp <- gapminder %>% 
-  select(year, country, gdpPercap)
+year_country_gdp <- gapminder %>%  # use pipe
+  select(year, country, gdpPercap) # select few columns
 ```
 
 To help you understand why we wrote that in that way, let's walk through it step
@@ -153,9 +161,9 @@ For example, we may want to rename the gdpPercap column name from our `select()`
 
 ```{r}
 tidy_gdp <- year_country_gdp %>% 
-  rename(gdp_per_capita = gdpPercap)
+  rename(gdp_per_capita = gdpPercap)  # rename a variable name or column name
 
-head(tidy_gdp)
+head(tidy_gdp)  # see first few lines
 ```
 
 :::
@@ -167,8 +175,8 @@ countries, we can combine `select` and `filter`
 
 ```{r}
 year_country_gdp_euro <- gapminder %>%
-    filter(continent == "Europe") %>%
-    select(year, country, gdpPercap)
+    filter(continent == "Europe") %>%  # keep observation (rows) that have Europe
+    select(year, country, gdpPercap)   # keep variables
 ```
 
 If we now want to show life expectancy of European countries but only
@@ -176,7 +184,7 @@ for a specific year (e.g., 2007), we can do as below.
 
 ```{r}
 europe_lifeExp_2007 <- gapminder %>%
-  filter(continent == "Europe", year == 2007) %>%
+  filter(continent == "Europe", year == 2007) %>% # now take observation that have Europe & 2007
   select(country, lifeExp)
 ```
 
@@ -196,6 +204,8 @@ have and why?
 year_country_lifeExp_Africa <- gapminder %>%
                            filter(continent == "Africa") %>%
                            select(year, country, lifeExp)
+
+head(year_country_lifeExp_Africa)
 ```
 :::
 
@@ -271,8 +281,8 @@ expectancy and which has the shortest average life expectancy?
 
 ```{r}
 lifeExp_bycountry <- gapminder %>%
-   group_by(country) %>%
-   summarize(mean_lifeExp = mean(lifeExp))
+   group_by(country) %>%                                       # group countrywise contrywise
+   summarize(mean_lifeExp = mean(lifeExp))                     # calculate average
 lifeExp_bycountry %>%
    filter(mean_lifeExp == min(mean_lifeExp) | mean_lifeExp == max(mean_lifeExp))
 ```
@@ -285,10 +295,10 @@ descending order.
 
 ```{r}
 lifeExp_bycountry %>%
-   arrange(mean_lifeExp) %>%
+   arrange(mean_lifeExp) %>%        # sort
    head(1)
 lifeExp_bycountry %>%
-   arrange(desc(mean_lifeExp)) %>%
+   arrange(desc(mean_lifeExp)) %>%  # arrange in decentralizing jon
    head(1)
 ```
 
@@ -317,8 +327,8 @@ That is already quite powerful, but it gets even better! You're not limited to d
 gdp_pop_bycontinents_byyear <- gapminder %>%
     group_by(continent, year) %>%
     summarize(mean_gdpPercap = mean(gdpPercap),
-              sd_gdpPercap = sd(gdpPercap),
-              mean_pop = mean(pop),
+              sd_gdpPercap = sd(gdpPercap),     # calculate standard deviation
+              mean_pop = mean(pop),             # calculate average
               sd_pop = sd(pop))
 ```
 
@@ -335,7 +345,7 @@ optionally sort the results in descending order by adding `sort=TRUE`:
 ```{r}
 gapminder %>%
     filter(year == 2002) %>%
-    count(continent, sort = TRUE)
+    count(continent, sort = TRUE)    # do counting
 ```
 
 If we need to use the number of observations in calculations, the `n()` function
@@ -344,7 +354,7 @@ is useful. It will return the total number of observations in the current group 
 ```{r}
 gapminder %>%
     group_by(continent) %>%
-    summarize(se_le = sd(lifeExp)/sqrt(n()))
+    summarize(se_le = sd(lifeExp)/sqrt(n()))   # calculaate standard error
 ```
 
 You can also chain together several summary operations; in this case calculating the `minimum`, `maximum`, `mean` and `se` of each continent's per-country life-expectancy:

@@ -1394,7 +1394,7 @@ library(ggiraph) # interactive plot
 
 ## Scales • `Discrete Colors`
 
--   scales: position, color, fill, size, shape, alpha, linetype
+-   scales: position, `color`, fill, size, shape, alpha, linetype
 -   syntax: `scale_<aesthetic>_<type>`
 
 ::: columns
@@ -1427,6 +1427,39 @@ Scales are used to control the aesthetics. For example the aesthetic color is ma
 
 ![](assets/scales.png){width="50%"}
 :::
+
+## Scales • `CVD friendly colors (palettes)` 
+-   scales: position, `color`, fill, size, shape, alpha, linetype
+-   syntax: `scale_<aesthetic>_<type>` 
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5
+#| echo: true
+p + scale_color_brewer(palette = "Set2")
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-height: 4
+#| fig-width: 5
+#| echo: true
+p + scale_color_brewer(palette = "Greys")
+
+```
+:::
+:::
+
+::: notes
+Scales are used to control the aesthetics. For example the aesthetic color is mapped to a variable `x`. The palette of colors used, the mapping of which color to which value, the upper and lower limit of the data and colors etc is controlled by scales.
+
+![](assets/scales.png){width="50%"}
+:::
+
 
 ## Scales • `Continuous Colors`
 
