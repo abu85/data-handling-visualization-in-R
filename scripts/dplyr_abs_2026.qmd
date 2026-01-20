@@ -44,7 +44,7 @@ cat("# ","Overview")
 
 ---------------------------------------------------------------
 
-```{r, include=FALSE}
+```{r}
 # install.packages("gapminder")  # install the package 
 library(gapminder)               # load the data
 
@@ -450,7 +450,8 @@ extra comments):
 # Filter countries located in the Americas
 americas <- gapminder[gapminder$continent == "Americas", ]
 # Make the plot
-ggplot(data = americas, mapping = aes(x = year, y = lifeExp)) +
+ggplot(data = americas, 
+       mapping = aes(x = year, y = lifeExp)) +
   geom_line() +
   facet_wrap( ~ country) +
   theme(axis.text.x = element_text(angle = 45))
