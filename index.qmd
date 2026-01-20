@@ -157,7 +157,7 @@ gapminder %>% filter(year == 2007) %>%
 [Repository](https://github.com/abu85/data-handling-visualization-in-R)
 
 
-- Click on `<>Code` 
+- Click on `<>Code` green box
 
 - Click on Dowlload ZIP, will be downloaded
 
