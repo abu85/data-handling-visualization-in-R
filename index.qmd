@@ -90,7 +90,7 @@ Lecture: same lecture
 
 #### i) Datasets used in these lectures and labs:
 
-[storms](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/storms.csv), [cases](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/cases.csv), [pollution](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/pollution.csv), [tb](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/tb.csv),[ gapminder_data.csv](https://canvas.slu.se/courses/16190/files/1666857?wrap=1),[ gapminder_wide.csv](https://canvas.slu.se/courses/16190/files/1666858?wrap=1)
+[storms](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/storms.csv), [cases](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/cases.csv), [pollution](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/pollution.csv), [tb](https://raw.githubusercontent.com/rstudio/EDAWR/refs/heads/master/data-raw/tb.csv),[ gapminder_data.csv](https://canvas.slu.se/courses/16190/files/1666857?wrap=1),[ gapminder_wide.csv](https://canvas.slu.se/courses/16190/files/1666858?wrap=1), [penguins](https://github.com/mwaskom/seaborn-data/blob/master/penguins.csv)
 
 
 
