@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Abu Bakar Siddique, SLUBI">
-  <meta name="dcterms.date" content="2026-01-20">
+  <meta name="dcterms.date" content="2026-01-21">
   <title>ggplot2 in R Part 1 &amp; 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -407,7 +407,7 @@ Abu Bakar Siddique, SLUBI
 </div>
 </div>
 
-  <p class="date">2026-01-20</p>
+  <p class="date">2026-01-21</p>
 </section>
 
 <section id="graphs" class="slide level2">
@@ -2061,7 +2061,9 @@ Curated list of ggplot2 links: <a href="https://github.com/erikgahner/awesome-gg
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a>p <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a><span class="co"># install.package("RColorBrewer")</span></span>
+<span id="cb68-2"><a></a><span class="fu">library</span>(RColorBrewer)  <span class="co"># you must have this package</span></span>
+<span id="cb68-3"><a></a>p <span class="sc">+</span> <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>

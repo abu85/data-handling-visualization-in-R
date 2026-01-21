@@ -1355,7 +1355,7 @@
     "href": "slides/ggplot_gsvms_2026.html#scales-cvd-friendly-colors-palettes",
     "title": "ggplot2 in R Part 1 & 2",
     "section": "Scales • CVD friendly colors (palettes)",
-    "text": "Scales • CVD friendly colors (palettes)\n\nscales: position, color, fill, size, shape, alpha, linetype\nsyntax: scale_&lt;aesthetic&gt;_&lt;type&gt;\n\n\n\n\np + scale_color_brewer(palette = \"Set2\")\n\n\n\n\n\n\n\n\n\n\np + scale_color_brewer(palette = \"Greys\")\n\n\n\n\n\n\n\n\n\n\nScales are used to control the aesthetics. For example the aesthetic color is mapped to a variable x. The palette of colors used, the mapping of which color to which value, the upper and lower limit of the data and colors etc is controlled by scales."
+    "text": "Scales • CVD friendly colors (palettes)\n\nscales: position, color, fill, size, shape, alpha, linetype\nsyntax: scale_&lt;aesthetic&gt;_&lt;type&gt;\n\n\n\n\n# install.package(\"RColorBrewer\")\nlibrary(RColorBrewer)  # you must have this package\np + scale_color_brewer(palette = \"Set2\")\n\n\n\n\n\n\n\n\n\n\np + scale_color_brewer(palette = \"Greys\")\n\n\n\n\n\n\n\n\n\n\nScales are used to control the aesthetics. For example the aesthetic color is mapped to a variable x. The palette of colors used, the mapping of which color to which value, the upper and lower limit of the data and colors etc is controlled by scales."
   },
   {
     "objectID": "practicals/ggplot2_lab_part2.html",

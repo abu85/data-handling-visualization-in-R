@@ -1438,6 +1438,8 @@ Scales are used to control the aesthetics. For example the aesthetic color is ma
 #| fig-height: 4
 #| fig-width: 5
 #| echo: true
+# install.package("RColorBrewer")
+library(RColorBrewer)  # you must have this package
 p + scale_color_brewer(palette = "Set2")
 
 ```
