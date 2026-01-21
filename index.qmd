@@ -81,8 +81,8 @@ Lecture: same lecture
 
 **Lab exercises**: remake the following graphs (website): 
 
-   2. [Economist Scatterplot](https://nbisweden.github.io/raukr-2023/labs/ggplot/#economist-scatterplot) and/or
-   3. [WSJ Heatmap](https://nbisweden.github.io/raukr-2023/labs/ggplot/#wsj-heatmap)
+   2. [Economist Scatterplot](https://abu85.github.io/data-handling-visualization-in-R/practicals/ggplot2_lab_part2.html#economist-scatterplot) and/or
+   3. [WSJ Heatmap](https://abu85.github.io/data-handling-visualization-in-R/practicals/ggplot2_lab_part2.html#wsj-heatmap)
 
 -----------------------------------------------------------
 
