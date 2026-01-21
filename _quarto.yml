@@ -31,7 +31,7 @@ website:
           - text: "ggplot2 lab (part1)"
             href: ./practicals/ggplot2_lab_part1.html          
           - text: "ggplot2 lab (part2)"
-            href: ./practicals/ggplot2_lab_part1.html          
+            href: ./practicals/ggplot2_lab_part2.html          
     right:
       - icon: softwerecarpentry
         href: https://swcarpentry.github.io/shell-novice/
