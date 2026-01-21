@@ -42,7 +42,7 @@ These are a series of exercises to help you get started and familiarize yourself
 
 <br>
 
-## Basics
+## 1. Basics
 
 First step is to make sure that the necessary packages are installed and loaded.
 
@@ -438,7 +438,7 @@ ggplot(data=dfr,mapping=aes(x=Species,y=mean,color=Species))+
   geom_errorbar(aes(ymax=high,ymin=low),width=0.2)
 ```
 
-## Economist Scatterplot
+## 2. Economist Scatterplot
 
 The aim of this challenge is to recreate the plot below originally published in [The Economist](https://www.economist.com/blogs/dailychart/2011/12/corruption-and-development). The graph is a scatterplot showing the relationship between *Corruption Index* and *Human Development Index* for various countries.
 
@@ -774,7 +774,7 @@ p1 <- ggplot(ec,aes(x=CPI,y=HDI,color=Region))+
 p1
 ```
 
-## WSJ Heatmap
+## 3. WSJ Heatmap
 
 The aim of this challenge is to recreate the plot below originally published in [The Wall Street Journal](http://graphics.wsj.com/infectious-diseases-and-vaccines/). The plot is a heatmap showing the normalized number of cases of measles across 51 US states from 1928 to 2003. X-axis shows years and y-axis shows the names of states. The color of the tiles denote the number of measles cases per 100,000 people. Introduction of the measles vaccine is shown as the black line in 1963.
 
