@@ -28,9 +28,9 @@ website:
             href: ./scripts/tidyr_abs_2026.html
           - text: "dplyr practical"
             href: ./scripts/dplyr_abs_2026.html
-          - text: "ggplot2 (part1) practical"
+          - text: "ggplot2 lab (part1)"
             href: ./practicals/ggplot2_lab_part1.html          
-          - text: "ggplot2 (part2) practical"
+          - text: "ggplot2 lab (part2)"
             href: ./practicals/ggplot2_lab_part1.html          
     right:
       - icon: softwerecarpentry
